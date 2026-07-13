@@ -1,267 +1,96 @@
-/* Custom Palettes inspired by the BSRP Logo */
-:root {
-    --swamp-dark: #0b1411;
-    --bayou-moss: #1c332b;
-    --sunset-gold: #d4af37;
-    --river-blue: #2b4c52;
-    --text-light: #e6e8e6;
-    --warning-red: #8b0000;
-}
-
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--swamp-dark);
-    color: var(--text-light);
-    line-height: 1.6;
-}
-
-/* Smooth Watery Background Glow effect */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: radial-gradient(circle at 50% 20%, rgba(43, 76, 82, 0.15), transparent 60%);
-    z-index: -1;
-    pointer-events: none;
-}
-
-/* Header/Hero style */
-.hero {
-    position: relative;
-    padding: 60px 20px;
-    text-align: center;
-    background: linear-gradient(180deg, var(--bayou-moss) 0%, var(--swamp-dark) 100%);
-    border-bottom: 3px solid var(--sunset-gold);
-    overflow: hidden;
-}
-
-/* Floating Logo Animation */
-.logo-animation {
-    max-width: 180px;
-    height: auto;
-    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
-    animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-
-.hero h1 {
-    font-size: 2.8rem;
-    margin: 15px 0 5px;
-    color: var(--sunset-gold);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Notice Banner */
-.notice-bar {
-    background-color: var(--warning-red);
-    color: #fff;
+/* Custom styling additions for comprehensive elements */
+.disaster-callout {
+    background: rgba(139, 0, 0, 0.25);
+    border: 1px solid var(--warning-red);
     padding: 15px;
-    text-align: center;
-    font-size: 0.95rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.animate-gavel {
-    margin-right: 10px;
-    animation: pound 2.5s infinite;
-}
-
-@keyframes pound {
-    0%, 100%, 20% { transform: rotate(0deg); }
-    10% { transform: rotate(-20deg); }
-    15% { transform: rotate(10deg); }
-}
-
-/* Layout Infrastructure */
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.section-title {
-    color: var(--sunset-gold);
-    border-bottom: 2px solid var(--river-blue);
-    padding-bottom: 10px;
-    margin-top: 40px;
-}
-
-/* Carousel/Slider */
-.carousel-container {
-    position: relative;
-    background: rgba(28, 51, 43, 0.4);
-    border: 1px solid var(--river-blue);
-    border-radius: 8px;
-    padding: 30px;
-    text-align: center;
-    margin: 20px 0;
-}
-
-.carousel-slide {
-    display: none;
-    animation: fadeIn 0.5s ease;
-}
-
-.carousel-slide.active {
-    display: block;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: var(--sunset-gold);
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    border-radius: 4px;
-}
-
-.carousel-btn:hover { background: var(--river-blue); }
-.prev { left: 10px; }
-.next { right: 10px; }
-
-/* Accordion Dropdowns */
-.accordion-item {
-    background: rgba(20, 35, 30, 0.7);
-    margin-bottom: 15px;
     border-radius: 6px;
-    border-left: 4px solid var(--river-blue);
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.accordion-item:hover {
-    border-left-color: var(--sunset-gold);
-}
-
-.accordion-header {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 20px;
-    color: var(--text-light);
-    font-size: 1.1rem;
-    text-align: left;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    transition: max-height 0.3s ease-out, padding 0.3s ease;
-    background: rgba(0,0,0,0.2);
-}
-
-.accordion-item.open .accordion-content {
-    max-height: 1500px; /* arbitrary high limit */
-    padding: 20px;
-}
-
-.accordion-item.open i {
-    transform: rotate(180deg);
-    color: var(--sunset-gold);
-}
-
-/* Tables styling inside rules */
-.table-wrapper { overflow-x: auto; }
-table {
-    width: 100%;
-    border-collapse: collapse;
     margin: 15px 0;
 }
-th, td {
-    padding: 12px;
-    border: 1px solid var(--river-blue);
-    text-align: left;
+.disaster-callout h5 {
+    color: #ff4d4d;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
 }
-th { background-color: var(--bayou-moss); color: var(--sunset-gold); }
-
-/* Interactive Flip Cards */
-.flip-cards-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+blockquote {
+    border-left: 3px solid var(--sunset-gold);
+    background: rgba(214, 175, 55, 0.05);
+    margin: 15px 0;
+    padding: 10px 20px;
+    font-style: italic;
 }
-
-.flip-card {
-    background-color: transparent;
-    width: calc(50% - 10px);
-    height: 200px;
-    perspective: 1000px;
-    cursor: pointer;
+ol, ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
 }
-
-@media(max-width: 600px) { .flip-card { width: 100%; } }
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+li { margin-bottom: 8px; }
+code {
+    background: #000;
+    color: #ffb300;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
 }
 
-.flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+/* Interactive Blueprint Chart */
+.flowchart-container {
+    background: rgba(0,0,0,0.4);
+    border: 1px dashed var(--river-blue);
+    padding: 20px;
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    box-sizing: border-box;
+    text-align: center;
+    margin: 25px 0;
 }
-
-.flip-card-front {
-    background: linear-gradient(135deg, var(--bayou-moss), var(--swamp-dark));
-    border: 1px solid var(--river-blue);
-    color: var(--text-light);
-}
-
-.flip-card-back {
-    background: var(--river-blue);
-    color: white;
-    transform: rotateY(180deg);
-}
-
-.asset-icon {
-    font-size: 2.5rem;
+.flow-title {
     color: var(--sunset-gold);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.flow-split {
+    display: flex;
+    gap: 15px;
+}
+@media(max-width:600px){ .flow-split { flex-direction: column; } }
+.flow-box {
+    flex: 1;
+    background: rgba(28, 51, 43, 0.6);
+    border: 1px solid var(--sunset-gold);
+    padding: 15px;
+    border-radius: 6px;
+}
+.flow-box h5 { margin: 0; font-size: 1.1rem; color: #fff; }
+.flow-sub { font-size: 0.8rem; margin: 2px 0 10px 0; color: #888; font-style: italic; }
+
+/* Law Display Layout */
+.law-display-box {
+    background: #050a09;
+    border: 1px solid var(--river-blue);
+    border-radius: 6px;
+    padding: 15px;
+    margin: 20px 0;
+}
+.law-row {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
-
-footer {
+@media(max-width:500px){ .law-row { flex-direction: column; align-items: flex-start; } }
+.law-row:last-child { margin-bottom: 0; }
+.law-badge {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    min-width: 160px;
     text-align: center;
-    padding: 40px;
-    background-color: #050a09;
     font-size: 0.85rem;
-    color: #555;
-    border-top: 1px solid #111;
+    margin-right: 15px;
 }
+.high-zone { background: #2e5a44; color: #fff; }
+.low-zone { background: #3c5462; color: #fff; }
+.law-desc { font-size: 0.95rem; color: #ccc; }
 
-@keyframes fadeIn {
-    from { opacity: 0; } to { opacity: 1; }
-}
+.closing-declaration { text-align: center; padding: 20px; }
+.motto { color: var(--sunset-gold); font-size: 1.3rem; margin: 20px 0; text-transform: uppercase; }
+.thanks { font-weight: bold; letter-spacing: 1px; }
+.click-hint { font-size: 0.75rem; color: var(--sunset-gold); opacity: 0.7; margin-top: 5px; }
