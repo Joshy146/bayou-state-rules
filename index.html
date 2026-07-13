@@ -5,382 +5,429 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bayou State Roleplay | Official Rules</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for high-quality interactive icons -->
+    <!-- FontAwesome for high-fidelity icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Hero Header Section -->
+    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <img src="logo.png" alt="BSRP Logo" class="logo-animation">
-            <h1>Bayou State Roleplay</h1>
+            <h1>Bayou State Roleplay (BSRP)</h1>
             <p class="subtitle">Official Comprehensive Code of Conduct, Statutory Rules, and Operational Regulations</p>
         </div>
     </header>
 
-    <!-- Global Enforceable Notice Bar -->
+    <!-- Notice Bar -->
     <div class="notice-bar">
         <i class="fa-solid fa-gavel animate-gavel"></i>
-        <span><strong>IMPORTANT NOTICE:</strong> By accessing Bayou State Roleplay — including our ingame server, Discord server, custom CAD/MDT systems, forums, or any affiliated platform — you automatically enter into a binding agreement to comply fully with the rules and policies outlined below.</span>
+        <span><strong>IMPORTANT NOTICE:</strong> By accessing Bayou State Roleplay — including our ingame server, Discord server, custom CAD/MDT systems, forums, or any affiliated platform — you automatically enter into a binding agreement to comply fully with the rules and policies outlined below. Failure to do so will result in administrative disciplinary actions up to and including immediate, permanent global removal from all current and future platforms.</span>
     </div>
 
     <!-- Main Content Container -->
     <main class="container">
 
-        <!-- SECTION 1 -->
-        <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Section 1: Preface, Vision, & Jurisdictional Foundations</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="accordion-content">
-                <div class="disaster-callout">
-                    <p><strong>FAILURE TO COMPLY:</strong> Failure to adhere to policies will result in administrative disciplinary actions up to and including immediate, permanent global removal from all current and future platforms.</p>
-                </div>
-                
-                <h3>1.1 Legislative Mission Statement</h3>
-                <p>Welcome to Bayou State Roleplay (BSRP). BSRP stands as a premier high-fidelity, serious roleplay community. Our administration is built upon three non-negotiable pillars: uncompromising mechanical and narrative realism, proactive community-driven development, and absolute blind administrative fairness.</p>
-                <p>Unlike standard roleplay servers that operate under a static, dictatorial legal framework, BSRP utilizes an <strong>Adaptive Legislative Model</strong>. We recognize that a thriving virtual ecosystem requires evolving guidelines. Our rules are continuously audited, adjusted, and expanded based on empirical gameplay data and community feedback.</p>
-
-                <h3>1.2 The Open Feedback Loop (#suggestions)</h3>
-                <p>Every citizen of BSRP possesses an active legislative voice. Our official Discord ecosystem hosts a structured #suggestions channel utilizing an automated upvote/downvote and indexing matrix.</p>
-                <blockquote>
-                    <strong>The Review Pipeline:</strong> Any community suggestion that maintains a net-positive approval rating above 75% over a continuous 7-day period is automatically escalated to the High Command Legislative Docket.
-                </blockquote>
-                <p><strong>Administrative Review:</strong> The High Command Advisory Board meets every Sunday to formally review escalated suggestions, drafting them into formal server text amendments if they align with performance boundaries and realism goals.</p>
-
-                <h3>1.3 The Concept of Adaptive Enforcement</h3>
-                <p>While our statutory codes are dynamic, our enforcement is unyielding. The phrase <em>"I didn't know the rule changed"</em> does not constitute a valid defense. It is the absolute, personal responsibility of every community member to review the Changelog channel prior to connecting to the game servers. By bypassing the connection splash screen, you enter a binding, enforceable contract to adhere to these high-fidelity standards.</p>
+        <!-- Live Rule Search Feature -->
+        <section class="search-section">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="ruleSearch" onkeyup="searchRules()" placeholder="Search statutory codes or keywords (e.g., RDM, LEO, Box)...">
             </div>
-        </div>
+        </section>
 
-        <!-- SECTION 2 -->
-        <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Section 2: Administrative Jurisprudence & Evidentiary Protocols</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="accordion-content">
-                <p>To completely eliminate administrative bias, personal vendettas, and "staff power-tripping," BSRP operates under a strict, formalized judicial system derived from Anglo-American legal traditions. A staff member cannot issue a punitive verdict based on a hunch or unverified claim.</p>
-                
-                <!-- Interactive Legal Flowchart -->
-                <div class="flowchart-container">
-                    <div class="flow-title">BSRP Evidentiary Conviction Blueprint</div>
-                    <div class="flow-split">
-                        <div class="flow-box">
-                            <h5>ACTUS REUS</h5>
-                            <p class="flow-sub">(The Guilty Act)</p>
-                            <p>Concrete evidence that an infraction occurred via logs, video, etc.</p>
+        <!-- Interactive Carousel for the 3 Pillars -->
+        <section class="interactive-section">
+            <h2 class="section-title"><i class="fa-solid fa-moss"></i> The Three Pillars of BSRP Legislative Mission</h2>
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <h3><i class="fa-solid fa-shield-halved"></i> 1. Mechanical & Narrative Realism</h3>
+                    <p>Uncompromising fidelity engineered to mirror realistic operations, keeping the ecosystem deeply immersive for serious players.</p>
+                </div>
+                <div class="carousel-slide">
+                    <h3><i class="fa-solid fa-code-branch"></i> 2. Proactive Development</h3>
+                    <p>A community-driven architecture backing constant adjustments to features, optimization, and gameplay loops.</p>
+                </div>
+                <div class="carousel-slide">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> 3. Absolute Blind Fairness</h3>
+                    <p>Complete elimination of administrative bias, personal vendettas, or staff power-tripping through strict structural judicial processes.</p>
+                </div>
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- Rule Accordions / Dropdowns -->
+        <section class="rules-section">
+            <h2 class="section-title"><i class="fa-solid fa-scroll"></i> Codex of Codified Law</h2>
+
+            <!-- Section 1 -->
+            <div class="accordion-item search-target">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Section 1: Preface, Vision, & Jurisdictional Foundations</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <h3>1.1 Legislative Mission Statement</h3>
+                    <p>Welcome to Bayou State Roleplay (BSRP). BSRP stands as a premier high-fidelity, serious roleplay community. Our administration is built upon three non-negotiable pillars: uncompromising mechanical and narrative realism, proactive community-driven development, and absolute blind administrative fairness.</p>
+                    <p>Unlike standard roleplay servers that operate under a static, dictatorial legal framework, BSRP utilizes an Adaptive Legislative Model. We recognize that a thriving virtual ecosystem requires evolving guidelines. Our rules are continuously audited, adjusted, and expanded based on empirical gameplay data and community feedback.</p>
+                    
+                    <h3>1.2 The Open Feedback Loop (#suggestions)</h3>
+                    <p>Every citizen of BSRP possesses an active legislative voice. Our official Discord ecosystem hosts a structured #suggestions channel utilizing an automated upvote/downvote and indexing matrix.</p>
+                    <blockquote><strong>The Review Pipeline:</strong> Any community suggestion that maintains a net-positive approval rating above 75% over a continuous 7-day period is automatically escalated to the High Command Legislative Docket.</blockquote>
+                    <blockquote><strong>Administrative Review:</strong> The High Command Advisory Board meets every Sunday to formally review escalated suggestions, drafting them into formal server text amendments if they align with performance boundaries and realism goals.</blockquote>
+                    
+                    <h3>1.3 The Concept of Adaptive Enforcement</h3>
+                    <p>While our statutory codes are dynamic, our enforcement is unyielding. The phrase "I didn't know the rule changed" does not constitute a valid defense. It is the absolute, personal responsibility of every community member to review the Changelog channel prior to connecting to the game servers. By bypassing the connection splash screen, you enter a binding, enforceable contract to adhere to these high-fidelity standards.</p>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="accordion-item search-target">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Section 2: Administrative Jurisprudence & Evidentiary Protocols</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>To completely eliminate administrative bias, personal vendettas, and "staff power-tripping," BSRP operates under a strict, formalized judicial system derived from Anglo-American legal traditions. A staff member cannot issue a punitive verdict based on a hunch or unverified claim.</p>
+                    
+                    <div class="legal-flex">
+                        <div class="legal-box box-blue">
+                            <h4>ACTUS REUS</h4>
+                            <p class="box-sub">(The Guilty Act)</p>
+                            <p>Concrete evidence that an infraction occurred via raw, unaltered game logs, server analytics, or clear visual media.</p>
                         </div>
-                        <div class="flow-box">
-                            <h5>MENS REA</h5>
-                            <p class="flow-sub">(The Guilty Mind)</p>
-                            <p>Proven intent to troll, exploit, or maliciously disrupt the server.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>2.1 The Two-Pronged Legal Burden</h3>
-                <ul>
-                    <li><strong>Actus Reus (The Guilty Act):</strong> Objective, verifiable, and physical evidence that the server rule was violated. This must be established via raw, unaltered game logs, server analytics, or clear visual media.</li>
-                    <li><strong>Mens Rea (The Guilty Mind):</strong> Clear evidence of intent to disrupt the roleplay environment, troll, exploit, or bypass server limitations. If a player breaks a rule due to an unpreventable mechanical client glitch or an unpredictable server-side desynchronization event, Mens Rea is void, and zero punitive actions may be taken.</li>
-                </ul>
-
-                <h3>2.2 Evidentiary Standards & Witness Corroboration Matrix</h3>
-                <p><strong>The Unaffiliated Three-Witness Rule:</strong> Verbal or text-based witness statements are strictly disregarded if they originate from individuals with any shared social, factional, gang, or business ties to the victim or the accuser. To convict a player based purely on witness testimony without video backup, exactly three (3) completely independent, unrelated, and geographically separated witnesses must submit identical, unprompted accounts of the event to Staff.</p>
-                <p><strong>Unaltered Video Capture Protocol:</strong> Video evidence remains the absolute gold standard of administrative appeals. All submissions must utilize continuous capture platforms (e.g., Medal, OBS, Shadowplay).</p>
-                <ul>
-                    <li><strong>Context Rule:</strong> Video clips must explicitly capture a minimum of 60 seconds of gameplay immediately PRIOR to the alleged incident (to establish narrative context and provocation) and 30 seconds IMMEDIATELY FOLLOWING the incident.</li>
-                    <li><strong>Void Triggers:</strong> Any video submission that is edited, cropped, visually filtered, speed-altered, or stripped of its raw in-game audio will be instantly thrown out of the ticket.</li>
-                </ul>
-                <p><strong>The Verbal Warning Safe Harbor:</strong> Every player is granted exactly one (1) verbal warning per specific offense category over the entire lifespan of their account, provided that the infractions do not involve explicit malicious hacking, exploitation, or discrimination. Verbal warnings are designed to educate well-meaning players on nuance, not to shield chronic offenders.</p>
-
-                <h3>2.3 The Cumulative Disciplinary Escalation Matrix</h3>
-                <p>Disciplinary records at BSRP are permanent ledger entries tied permanently to your unique account identifiers (Roblox User ID, GUID, and Discord Snowflake ID). Our records never expire, decay, or reset.</p>
-                
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Milestone / Tier</th>
-                                <th>Mechanical Trigger</th>
-                                <th>Immediate Consequence</th>
-                                <th>Escalation & Recidivism Clause</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Tier I</strong></td>
-                                <td>First recorded category offense.</td>
-                                <td>1 Formal Verbal Warning</td>
-                                <td>Logged in the global moderation database; explicitly details the rule clause broken.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tier II</strong></td>
-                                <td>Accumulation of three (3) warnings of any type.</td>
-                                <td>1-Hour Network Server Kick</td>
-                                <td>A forced connection drop. Any attempt to rejoin before the hour expires via alt accounts or VPNs triggers a 14-day Ban.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tier III</strong></td>
-                                <td>Accumulation of eight (8) warnings OR two (2) kicks within a rolling 28-day window.</td>
-                                <td>14-Day Structural Server Ban</td>
-                                <td>Immediate stripping of all active departmental, factional, and leadership ranks.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tier IV</strong></td>
-                                <td>Accumulation of three (3) separate temporary bans historically.</td>
-                                <td>Permanent Account Blacklist</td>
-                                <td>Complete removal from all BSRP assets. Appealable exactly 30 days post-ban via the Appeal Server.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3>2.4 Data Removal, Privacy Requests, & Permanent Forfeiture</h3>
-                <p>In strict compliance with modern digital privacy frameworks, any community member has the right to formally request the absolute erasure of their historical records, CAD profiles, and personal data from our hosting infrastructure.</p>
-                <div class="disaster-callout">
-                    <h5>CRITICAL NOTICE ON DATA REMOVAL</h5>
-                    <p>Because our administrative security apparatus requires continuous, un-broken historical logs to track malicious actors and recidivist rule-breakers, the execution of a data removal request results in an immediate, automated, and irreversible permanent ban from all BSRP assets. This is a security measure to prevent individuals from wiping their disciplinary records to sneak back into the community as a "clean" user.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 3 -->
-        <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Section 3: In-Game Mechanics & Core Roleplay Regulations</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="accordion-content">
-                <h3>3.1 Out-Of-Character (OOC) Decorum & Respect</h3>
-                <p><strong>The Baseline:</strong> The Out-of-Character channels (/ooc, /b, global text boxes) are strictly reserved for technical troubleshooting and minor administrative notifications.</p>
-                <p><strong>Prohibitions:</strong> Using OOC channels to criticize another player’s roleplay quality, argue over an ongoing tactical scenario, bait law enforcement, or flame an opposing faction is completely banned.</p>
-                <p><strong>Hate Speech & Toxicity:</strong> Any usage of slurs, targeted harassment, dox threats, or xenophobic commentary anywhere within the BSRP network results in an immediate, non-appealable permanent ban on the first offense.</p>
-
-                <h3>3.2 Fail Roleplay (FRP)</h3>
-                <p><strong>Statutory Definition:</strong> Engaging in any physical action, vehicular maneuver, or verbal claim that is fundamentally impossible, highly improbable, or completely disruptive to the simulation of a realistic environment.</p>
-                <p><strong>Detailed Prohibited Scenarios:</strong></p>
-                <ul>
-                    <li><strong>Superhuman Sprints:</strong> Jumping off an elevated structure (such as a highway overpass or a 40-foot bridge) during a foot pursuit, hitting the ground, and immediately resuming a full-speed tactical sprint without simulating broken bones or severe shock.</li>
-                    <li><strong>Sub-Aquatic Extended Breath:</strong> Remaining submerged completely underwater for a duration exceeding 120 seconds to hide from aviation tracking or tracking dogs.</li>
-                    <li><strong>Topographical Defiance:</strong> Intentionally driving standard factory commuter sedans, low-clearance sports cars, or heavy commercial vehicles up vertical, unpaved mountain ridges, muddy swamp embankments, or sheer rock faces.</li>
-                    <li><strong>Physics Abuse:</strong> Utilizing the game engine's physical collision boxes to intentionally roll, flip, or un-wedge a vehicle that has crashed out, without calling a flatbed or tow truck to execute proper /me mechanical recovery roleplay.</li>
-                </ul>
-
-                <h3>3.3 No Intent to Roleplay (NITRP)</h3>
-                <p><strong>Statutory Definition:</strong> Connecting to the BSRP server with zero desire to build stories, engage in dialog, or follow character arcs, choosing instead to act as a chaotic agent focused on optimizing mechanical loops or disrupting others.</p>
-                <p><strong>Detailed Prohibited Scenarios:</strong></p>
-                <ul>
-                    <li><strong>LEO Baiting:</strong> Continuously doing donuts, burning rubber, or redlining a vehicle at 180+ MPH directly outside a police precinct solely to force a high-speed chase.</li>
-                    <li><strong>Acoustic Trolling:</strong> Standing in highly populated public areas (hospitals, spawn squares) while screaming into your microphone or playing distorted audio tracks.</li>
-                    <li><strong>Scenario Abandonment:</strong> Actively initiating a major, resource-intensive server event (such as a multi-stage bank robbery or jewelry heist) and then logging out or intentionally drowning your character the second law enforcement arrives on scene.</li>
-                </ul>
-
-                <h3>3.4 Random Deathmatch (RDM)</h3>
-                <p><strong>Statutory Definition:</strong> The act of inflicting damage, incapacitating, or murdering an absolute stranger or fellow community member without an extensive, logically sound, and pre-established narrative reason.</p>
-                <p><strong>The Formal 3-Step Initiation Protocol:</strong> Before a lethal weapon can be drawn and fired at another human being, the aggressor must meet the following three criteria:</p>
-                <ol>
-                    <li><strong>Clear Verbal/Text Demands:</strong> You must issue an explicit, unambiguous demand that can be clearly heard or read by the victim (e.g., "Step out of the vehicle with your hands up or you will be shot").</li>
-                    <li><strong>Reasonable Compliance Window:</strong> You must provide a minimum of five (5) physical seconds for the victim to comprehend and comply with your demands. You cannot say "Drop it or die" and shoot simultaneously.</li>
-                    <li><strong>Active Hostile Aggression:</strong> The target must actively refuse to comply or attempt to flee/draw a weapon.</li>
-                </ol>
-                <p><strong>Mass RDM:</strong> The unprovoked execution of three (3) or more individuals within a single localized scene is immediately categorized as NITRP with Malicious Intent and carries a mandatory permanent ban.</p>
-
-                <h3>3.5 Vehicle Deathmatch (VDM)</h3>
-                <p><strong>Statutory Definition:</strong> Utilizing any motorized vehicle (car, truck, motorcycle, commercial rig) as a primary weapon, ramming device, or kinetic projectile to inflict bodily harm on a pedestrian or to smash another vehicle into structural failure.</p>
-                <p><strong>Absolute Legitimate Exceptions:</strong></p>
-                <ul>
-                    <li><strong>The Non-Compliance Clause:</strong> The operator of the opposing vehicle has completely failed to roleplay a previous catastrophic head-on collision, completely ignoring vehicular damage mechanics to continue driving away.</li>
-                    <li><strong>The Tactical Clearance Clause:</strong> An active, highly dangerous tactical perimeter is established, and an individual is already confirmed deceased on the pavement. A vehicle may push through the scene or blockade at realistic, non-lethal speeds strictly below 15 MPH.</li>
-                </ul>
-
-                <h3>3.6 Mechanical Execution Regulations (Cuff Rushing & FTA)</h3>
-                <p><strong>Cuff Rushing:</strong> Law Enforcement Officers are strictly prohibited from sprinting erratically toward an armed or actively resisting suspect and spamming a physical hotkey to mechanically lock them into handcuffs.</p>
-                <p><strong>The Legal Protocol:</strong> Cuffs may only be applied if the suspect is completely compliant, physically incapacitated via a deployed and successful Taser deployment, or pinned against a structural wall. The LEO must concurrently type or voice-announce the action using standard indicators (e.g., <code>/me deploys metal handcuffs onto the suspect's left and right wrists</code>).</p>
-                <p><strong>Failing to Act (FTA):</strong> It is illegal to execute complex physical interactions with players or objects using purely mechanical keyboard commands without adding descriptive narrative text or voice.</p>
-                <p><strong>Required Indicators:</strong> Actions such as slashing a competitor's tires, shattering a shop window, pickpocketing, or disabling a house alarm must be explicitly initiated using clear indicator text (e.g., <em>-slashes front left tire with pocket knife-</em> or <em>*shatters side window pane*</em>).</p>
-
-                <h3>3.7 Leaving to Avoid Punishment / Roleplay (LTAP / LTAR)</h3>
-                <p><strong>Statutory Definition:</strong> Voluntarily disconnecting from the BSRP network server to escape a live administrative ticket, avoid a staff interrogation, or preserve virtual assets/items during an active police arrest or violent gang skirmish.</p>
-                <p><strong>The Hardware Crash Exculpatory Clause:</strong> We recognize that software clients and networks can experience sudden catastrophic failure. If your game client crashes, you are automatically allocated a strict 5-minute grace window to log back into the server, open an emergency Discord ticket, and report back directly to the active staff member or opposing roleplay party to resume the scene exactly where it broke. Failure to report within 300 seconds cements the action as an intentional LTAP violation.</p>
-
-                <h3>3.8 New Life Rule (NLR)</h3>
-                <p><strong>Statutory Definition:</strong> Upon experiencing a total health depletion that results in your character "bleeding out" and respawning at a localized municipal hospital or medical clinic, your character is legally considered a completely new entity regarding that specific timeline.</p>
-                <ul>
-                    <li><strong>The Amnesia Boundaries:</strong> You lose all conscious recollection of the events, conversations, conflicts, and individuals that directly precipitated your demise.</li>
-                    <li><strong>Geographic Exclusion Zone:</strong> You are strictly barred from entering a 1,500-stud physical radius surrounding the exact coordinate node where you died. This exclusion zone remains active for 20 minutes or until the active scenario has completely concluded and all emergency vehicles have cleared the scene.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- SECTION 4 -->
-        <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Section 4: Restricted Areas, Forbidden Roleplays, Weapons, & Vehicles (RARWV)</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="accordion-content">
-                <h3>4.1 Hardcoded Safe Zones</h3>
-                <p>The following spatial locations are defined as hardcoded sanctuary environments. The deployment of weapons, execution of criminal acts, or baiting of personnel within these zones is mechanically and legally blockaded:</p>
-                <ul>
-                    <li>All Civilian Initial Spawn Squares and Welcome Centers.</li>
-                    <li>All Police Department Interiors, Secure Armories, Muster Rooms, and Gated Fleet Garages.</li>
-                    <li>The State Penitentiary Complex, Courtrooms, and Regional Holding Facilities.</li>
-                    <li>All Hospital Emergency Ward entry bays, interior check-in areas, and surgical theaters.</li>
-                </ul>
-
-                <h3>4.2 Categorically Prohibited Roleplay Scenarios</h3>
-                <p>BSRP prides itself on hosting a mature, premium environment, but we maintain a zero-tolerance boundary for scenarios that veer into extreme real-world psychological trauma or gross violations of human dignity. Engaging in any of the following triggers an immediate, un-appealable global network ban:</p>
-                <ul>
-                    <li><strong>Asymmetric Terrorism:</strong> Simulating large-scale political terrorism, suicide bombings, or mass casualty events synchronized with real-world geopolitical conflicts.</li>
-                    <li><strong>Self-Harm:</strong> Detailed text or voice depictions of self-inflicted harm or suicide.</li>
-                    <li><strong>ToS Infractions:</strong> Any narrative theme that directly violates the foundational Roblox Terms of Service.</li>
-                    <li><strong>Sexual Deviance & ERP:</strong> Any text, animations, clothing, or verbal dialogue depicting explicit sexual acts, non-consensual sexual assaults, or romantic roleplay involving characters framed as minors.</li>
-                </ul>
-
-                <h3>4.3 Asset Classifications: Restricted Armaments & Vehicles</h3>
-                <p>To preserve server economy balance and prevent our streets from devolving into an arcade-style sandbox, high-performance hypercars and military-grade firepower are restricted exclusively to Server VIP Tiers, Discord Nitro Boosters, and Active Administration Staff.</p>
-
-                <!-- Flip Cards Embedded inside Section 4 for better interactive engagement -->
-                <div class="flip-cards-container">
-                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fa-solid fa-car-burst asset-icon"></i>
-                                <h4>Blacklisted Vehicles</h4>
-                                <p class="click-hint">(Click to Reveal List)</p>
-                            </div>
-                            <div class="flip-card-back">
-                                <ul>
-                                    <li>Chevlon Corbeta TZ</li>
-                                    <li>BKM Risen Roadster</li>
-                                    <li>Falcon Heritage</li>
-                                    <li>Strugatti Ettore</li>
-                                    <li>Surrey 650S</li>
-                                    <li>Bullhorn Determinator SFP Blackjack Widebody</li>
-                                </ul>
-                            </div>
+                        <div class="legal-box box-gold">
+                            <h4>MENS REA</h4>
+                            <p class="box-sub">(The Guilty Mind)</p>
+                            <p>Proven intent to troll, exploit, or maliciously disrupt the server ecosystem. If triggered by an unpreventable client glitch or desync, Mens Rea is void.</p>
                         </div>
                     </div>
 
-                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fa-solid fa-gun asset-icon"></i>
-                                <h4>Restricted Firearms</h4>
-                                <p class="click-hint">(Click to Reveal List)</p>
-                            </div>
-                            <div class="flip-card-back">
-                                <ul>
-                                    <li>All Long-Range Sniper Rifles</li>
-                                    <li>All Automatic Combat Shotguns</li>
-                                    <li>Premium Gamepass Weaponry</li>
-                                    <li>M249 SAW Light Machine Gun</li>
-                                    <li>Vector .45 ACP SMG</li>
-                                </ul>
-                            </div>
+                    <h3>2.1 The Two-Pronged Legal Burden</h3>
+                    <p>To sustain a formal infraction log or ban, the presiding Staff Member must successfully prove both distinct elements: Actus Reus and Mens Rea. If a player breaks a rule due to an unpreventable mechanical client glitch or an unpredictable server-side desynchronization event, Mens Rea is void, and zero punitive actions may be taken.</p>
+
+                    <h3>2.2 Evidentiary Standards & Witness Corroboration Matrix</h3>
+                    <p><strong>The Unaffiliated Three-Witness Rule:</strong> Verbal or text-based witness statements are strictly disregarded if they originate from individuals with any shared social, factional, gang, or business ties to the victim or the accuser. To convict a player based purely on witness testimony without video backup, exactly three (3) completely independent, unrelated, and geographically separated witnesses must submit identical, unprompted accounts of the event to Staff.</p>
+                    <p><strong>Unaltered Video Capture Protocol:</strong> Video evidence remains the absolute gold standard of administrative appeals. All submissions must utilize continuous capture platforms (e.g., Medal, OBS, Shadowplay).</p>
+                    <ul>
+                        <li><strong>Context Rule:</strong> Video clips must explicitly capture a minimum of 60 seconds of gameplay immediately PRIOR to the alleged incident (to establish narrative context and provocation) and 30 seconds IMMEDIATELY FOLLOWING the incident.</li>
+                        <li><strong>Void Triggers:</strong> Any video submission that is edited, cropped, visually filtered, speed-altered, or stripped of its raw in-game audio will be instantly thrown out of the ticket.</li>
+                    </ul>
+                    <p><strong>The Verbal Warning Safe Harbor:</strong> Every player is granted exactly one (1) verbal warning per specific offense category over the entire lifespan of their account, provided that the infractions do not involve explicit malicious hacking, exploitation, or discrimination. Verbal warnings are designed to educate well-meaning players on nuance, not to shield chronic offenders.</p>
+
+                    <h3>2.3 The Cumulative Disciplinary Escalation Matrix</h3>
+                    <p>Disciplinary records at BSRP are permanent ledger entries tied permanently to your unique account identifiers (Roblox User ID, GUID, and Discord Snowflake ID). Our records never expire, decay, or reset.</p>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Milestone / Tier</th>
+                                    <th>Mechanical Trigger</th>
+                                    <th>Immediate Consequence</th>
+                                    <th>Escalation & Recidivism Clause</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Tier I</strong></td>
+                                    <td>First recorded category offense.</td>
+                                    <td><span class="badge warning">1 Formal Verbal Warning</span></td>
+                                    <td>Logged in the global moderation database; explicitly details the rule clause broken.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tier II</strong></td>
+                                    <td>Accumulation of three (3) warnings of any type.</td>
+                                    <td><span class="badge alert">1-Hour Network Server Kick</span></td>
+                                    <td>A forced connection drop. Any attempt to rejoin before the hour expires via alt accounts or VPNs triggers a 14-day Ban.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tier III</strong></td>
+                                    <td>Accumulation of eight (8) warnings OR two (2) kicks within a rolling 28-day window.</td>
+                                    <td><span class="badge ban-temp">14-Day Structural Server Ban</span></td>
+                                    <td>Immediate stripping of all active departmental, factional, and leadership ranks.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tier IV</strong></td>
+                                    <td>Accumulation of three (3) separate temporary bans historically.</td>
+                                    <td><span class="badge ban-perm">Permanent Account Blacklist</span></td>
+                                    <td>Complete removal from all BSRP assets. Appealable exactly 30 days post-ban via the Appeal Server.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>2.4 Data Removal, Privacy Requests, & Permanent Forfeiture</h3>
+                    <p>In strict compliance with modern digital privacy frameworks, any community member has the right to formally request the absolute erasure of their historical records, CAD profiles, and personal data from our hosting infrastructure.</p>
+                    <div class="alert-box">
+                        <strong>CRITICAL NOTICE ON DATA REMOVAL:</strong> Because our administrative security apparatus requires continuous, un-broken historical logs to track malicious actors and recidivist rule-breakers, the execution of a data removal request results in an immediate, automated, and irreversible permanent ban from all BSRP assets. This is a security measure to prevent individuals from wiping their disciplinary records to sneak back into the community as a "clean" user.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="accordion-item search-target">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Section 3: In-Game Mechanics & Core Roleplay Regulations</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <h3>3.1 Out-Of-Character (OOC) Decorum & Respect</h3>
+                    <p><strong>The Baseline:</strong> The Out-of-Character channels (/ooc, /b, global text boxes) are strictly reserved for technical troubleshooting and minor administrative notifications.</p>
+                    <p><strong>Prohibitions:</strong> Using OOC channels to criticize another player’s roleplay quality, argue over an ongoing tactical scenario, bait law enforcement, or flame an opposing faction is completely banned.</p>
+                    <p><strong>Hate Speech & Toxicity:</strong> Any usage of slurs, targeted harassment, dox threats, or xenophobic commentary anywhere within the BSRP network results in an immediate, non-appealable permanent ban on the first offense.</p>
+
+                    <h3>3.2 Fail Roleplay (FRP)</h3>
+                    <p><strong>Statutory Definition:</strong> Engaging in any physical action, vehicular maneuver, or verbal claim that is fundamentally impossible, highly improbable, or completely disruptive to the simulation of a realistic environment.</p>
+                    <p><strong>Detailed Prohibited Scenarios:</strong></p>
+                    <ul>
+                        <li><strong>Superhuman Sprints:</strong> Jumping off an elevated structure (such as a highway overpass or a 40-foot bridge) during a foot pursuit, hitting the ground, and immediately resuming a full-speed tactical sprint without simulating broken bones or severe shock.</li>
+                        <li><strong>Sub-Aquatic Extended Breath:</strong> Remaining submerged completely underwater for a duration exceeding 120 seconds to hide from aviation tracking or tracking dogs.</li>
+                        <li><strong>Topographical Defiance:</strong> Intentionally driving standard factory commuter sedans, low-clearance sports cars, or heavy commercial vehicles up vertical, unpaved mountain ridges, muddy swamp embankments, or sheer rock faces.</li>
+                        <li><strong>Physics Abuse:</strong> Utilizing the game engine's physical collision boxes to intentionally roll, flip, or un-wedge a vehicle that has crashed out, without calling a flatbed or tow truck to execute proper /me mechanical recovery roleplay.</li>
+                    </ul>
+
+                    <h3>3.3 No Intent to Roleplay (NITRP)</h3>
+                    <p><strong>Statutory Definition:</strong> Connecting to the BSRP server with zero desire to build stories, engage in dialog, or follow character arcs, choosing instead to act as a chaotic agent focused on optimizing mechanical loops or disrupting others.</p>
+                    <p><strong>Detailed Prohibited Scenarios:</strong></p>
+                    <ul>
+                        <li><strong>LEO Baiting:</strong> Continuously doing donuts, burning rubber, or redlining a vehicle at 180+ MPH directly outside a police precinct solely to force a high-speed chase.</li>
+                        <li><strong>Acoustic Trolling:</strong> Standing in highly populated public areas (hospitals, spawn squares) while screaming into your microphone or playing distorted audio tracks.</li>
+                        <li><strong>Scenario Abandonment:</strong> Actively initiating a major, resource-intensive server event (such as a multi-stage bank robbery or jewelry heist) and then logging out or intentionally drowning your character the second law enforcement arrives on scene.</li>
+                    </ul>
+
+                    <h3>3.4 Random Deathmatch (RDM)</h3>
+                    <p><strong>Statutory Definition:</strong> The act of inflicting damage, incapacitating, or murdering an absolute stranger or fellow community member without an extensive, logically sound, and pre-established narrative reason.</p>
+                    <p><strong>The Formal 3-Step Initiation Protocol:</strong> Before a lethal weapon can be drawn and fired at another human being, the aggressor must meet the following three criteria:</p>
+                    <ol>
+                        <li><strong>Clear Verbal/Text Demands:</strong> You must issue an explicit, unambiguous demand that can be clearly heard or read by the victim (e.g., "Step out of the vehicle with your hands up or you will be shot").</li>
+                        <li><strong>Reasonable Compliance Window:</strong> You must provide a minimum of five (5) physical seconds for the victim to comprehend and comply with your demands. You cannot say "Drop it or die" and shoot simultaneously.</li>
+                        <li><strong>Active Hostile Aggression:</strong> The target must actively refuse to comply or attempt to flee/draw a weapon.</li>
+                    </ol>
+                    <p><strong>Mass RDM:</strong> The unprovoked execution of three (3) or more individuals within a single localized scene is immediately categorized as NITRP with Malicious Intent and carries a mandatory permanent ban.</p>
+
+                    <h3>3.5 Vehicle Deathmatch (VDM)</h3>
+                    <p><strong>Statutory Definition:</strong> Utilizing any motorized vehicle (car, truck, motorcycle, commercial rig) as a primary weapon, ramming device, or kinetic projectile to inflict bodily harm on a pedestrian or to smash another vehicle into structural failure.</p>
+                    <p><strong>Absolute Legitimate Exceptions:</strong></p>
+                    <ul>
+                        <li><strong>The Non-Compliance Clause:</strong> The operator of the opposing vehicle has completely failed to roleplay a previous catastrophic head-on collision, completely ignoring vehicular damage mechanics to continue driving away.</li>
+                        <li><strong>The Tactical Clearance Clause:</strong> An active, highly dangerous tactical perimeter is established, and an individual is already confirmed deceased on the pavement. A vehicle may push through the scene or blockade at realistic, non-lethal speeds strictly below 15 MPH.</li>
+                    </ul>
+
+                    <h3>3.6 Mechanical Execution Regulations (Cuff Rushing & FTA)</h3>
+                    <p><strong>Cuff Rushing:</strong> Law Enforcement Officers are strictly prohibited from sprinting erratically toward an armed or actively resisting suspect and spamming a physical hotkey to mechanically lock them into handcuffs.</p>
+                    <p><strong>The Legal Protocol:</strong> Cuffs may only be applied if the suspect is completely compliant, physically incapacitated via a deployed and successful Taser deployment, or pinned against a structural wall. The LEO must concurrently type or voice-announce the action using standard indicators (e.g., /me deploys metal handcuffs onto the suspect's left and right wrists).</p>
+                    <p><strong>Failing to Act (FTA):</strong> It is illegal to execute complex physical interactions with players or objects using purely mechanical keyboard commands without adding descriptive narrative text or voice.</p>
+                    <p><strong>Required Indicators:</strong> Actions such as slashing a competitor's tires, shattering a shop window, pickpocketing, or disabling a house alarm must be explicitly initiated using clear indicator text (e.g., -slashes front left tire with pocket knife- or *shatters side window pane*).</p>
+
+                    <h3>3.7 Leaving to Avoid Punishment / Roleplay (LTAP / LTAR)</h3>
+                    <p><strong>Statutory Definition:</strong> Voluntarily disconnecting from the BSRP network server to escape a live administrative ticket, avoid a staff interrogation, or preserve virtual assets/items during an active police arrest or violent gang skirmish.</p>
+                    <p><strong>The Hardware Crash Exculpatory Clause:</strong> We recognize that software clients and networks can experience sudden catastrophic failure. If your game client crashes, you are automatically allocated a strict 5-minute grace window to log back into the server, open an emergency Discord ticket, and report back directly to the active staff member or opposing roleplay party to resume the scene exactly where it broke. Failure to report within 300 seconds cements the action as an intentional LTAP violation.</p>
+
+                    <h3>3.8 New Life Rule (NLR)</h3>
+                    <p><strong>Statutory Definition:</strong> Upon experiencing a total health depletion that results in your character "bleeding out" and respawning at a localized municipal hospital or medical clinic, your character is legally considered a completely new entity regarding that specific timeline.</p>
+                    <ul>
+                        <li><strong>The Amnesia Boundaries:</strong> You lose all conscious recollection of the events, conversations, conflicts, and individuals that directly precipitated your demise.</li>
+                        <li><strong>Geographic Exclusion Zone:</strong> You are strictly barred from entering a 1,500-stud physical radius surrounding the exact coordinate node where you died. This exclusion zone remains active for 20 minutes or until the active scenario has completely concluded and all emergency vehicles have cleared the scene.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="accordion-item search-target">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Section 4: Restricted Areas, Forbidden Roleplays, Weapons, & Vehicles (RARWV)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <h3>4.1 Hardcoded Safe Zones</h3>
+                    <p>The following spatial locations are defined as hardcoded sanctuary environments. The deployment of weapons, execution of criminal acts, or baiting of personnel within these zones is mechanically and legally blockaded:</p>
+                    <ul>
+                        <li>All Civilian Initial Spawn Squares and Welcome Centers.</li>
+                        <li>All Police Department Interiors, Secure Armories, Muster Rooms, and Gated Fleet Garages.</li>
+                        <li>The State Penitentiary Complex, Courtrooms, and Regional Holding Facilities.</li>
+                        <li>All Hospital Emergency Ward entry bays, interior check-in areas, and surgical theaters.</li>
+                    </ul>
+
+                    <h3>4.2 Categorically Prohibited Roleplay Scenarios</h3>
+                    <p>BSRP prides itself on hosting a mature, premium environment, but we maintain a zero-tolerance boundary for scenarios that veer into extreme real-world psychological trauma or gross violations of human dignity. Engaging in any of the following triggers an immediate, un-appealable global network ban:</p>
+                    <ul>
+                        <li><strong>Asymmetric Terrorism:</strong> Simulating large-scale political terrorism, suicide bombings, or mass casualty events synchronized with real-world geopolitical conflicts.</li>
+                        <li><strong>Self-Harm:</strong> Detailed text or voice depictions of self-inflicted harm or suicide.</li>
+                        <li><strong>ToS Infractions:</strong> Any narrative theme that directly violates the foundational Roblox Terms of Service.</li>
+                        <li><strong>Sexual Deviance & ERP:</strong> Any text, animations, clothing, or verbal dialogue depicting explicit sexual acts, non-consensual sexual assaults, or romantic roleplay involving characters framed as minors.</li>
+                    </ul>
+
+                    <h3>4.3 Asset Classifications: Restricted Armaments & Vehicles</h3>
+                    <p>To preserve server economy balance and prevent our streets from devolving into an arcade-style sandbox, high-performance hypercars and military-grade firepower are restricted exclusively to Server VIP Tiers, Discord Nitro Boosters, and Active Administration Staff.</p>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="accordion-item search-target">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Section 5: Server-Specific Protocols & Departmental Directives</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <h3>5.1 Staff Command Etiquette & Report Abuse</h3>
+                    <p><strong>Legitimate Reporting:</strong> The internal ticket system exists purely to alert active administrators to active, verifiable rule breaches occurring in real-time.</p>
+                    <p><strong>The Command Abuse Directive:</strong> Utilizing administrative command prompts, reports, or tickets to demand personal quality-of-life adjustments—such as submitting reports reading <code>:heal me</code>, <code>:wanted false</code>, or begging a staff member to spawn a custom car or alter the server weather cycle—is strictly illegal.</p>
+
+                    <h3>5.2 Maintaining Moderation Scene Integrity</h3>
+                    <p>When an administrator formally pauses a local scenario to conduct an emergency "Mod Scene," all active physical mechanics and timelines within that zone are frozen.</p>
+                    <p>Any player who actively runs into, speaks over, or intentionally drives through an active Mod Scene will be hit with an instant administrative teleportation command away from the coordinates.</p>
+                    <ul>
+                        <li><strong>The Trespass Clause:</strong> Attempting to purposefully walk or drive back into a running Mod Scene carries a mandatory Warning. Doing it a second time triggers an immediate Server Kick.</li>
+                        <li><strong>Hostile Intervention:</strong> Discharging any firearm, throwing an explosive, or attempting to run over an administrator/suspect during a running Mod Scene carries an immediate 30-Day Network Ban.</li>
+                    </ul>
+
+                    <h3>5.3 Technical Integrity Directive (Exploiting & Glitching)</h3>
+                    <p><strong>Statutory Definition:</strong> The execution of external third-party software executables (injectors), running custom Lua script matrices, or intentionally abusing broken map collisions, infinite money loops, or transparent wall assets to obtain an asymmetric advantage over other players.</p>
+                    <p><strong>The Penalty:</strong> An immediate, non-appealable, permanent hardware-ID linked ban from all BSRP networks and companion servers.</p>
+
+                    <h3>5.4 Faction Compliance, Dress Codes, & Asset Management</h3>
+                    <p><strong>The Whitelist Barrier:</strong> Public players may not roleplay as specialist civil servants. Operating within non-whitelisted departments requires passing formal written examinations, background checks, and practical academy training before stepping foot in advanced subdivisions (e.g., SWAT, Narcotics, K9, or Air Support).</p>
+                    <p><strong>The Uniform Discipline Act:</strong> On-duty public servants must wear the exact, pixel-perfect uniform profile mapped to their current active rank and unit designation. Mixing tactical gear with civilian street clothing (e.g., wearing a police vest over civilian hoodies and sweatpants) is completely prohibited.</p>
+                    <p><strong>Asset Identity & Livery Mandate:</strong> All departmental emergency fleets must exclusively utilize verified, high-resolution Bayou State Roleplay (BSRP) local branding liveries. The importation, usage, or hot-linking of old assets, generic templates, or assets explicitly belonging to alternate roleplay networks (such as standard, un-edited PRC assets) is thoroughly illegal.</p>
+
+                    <h3>5.5 Highrock Park Topographical Management Act</h3>
+                    <p><strong>The Mountain Fleet Restriction:</strong> Highrock Park features dangerous, un-paved, mud-slicked mountain trails. Only high-clearance SUVs, dedicated 4x4 off-road pickup trucks, and official Park Ranger tactical utility units are legally permitted past the main lower ranger station and onto the mountain roads.</p>
+                    <p><strong>Sedan Allocation Zones:</strong> All low-clearance commuter sedans, sports cars, exotics, and lowered custom trucks must park cleanly within the designated asphalt parking bays at the absolute base of the valley trails.</p>
+                    
+                    <div class="ascii-art-box">
+                        <span class="ascii-title">🏔️ HIGHROCK PARK TRANSIT LAW</span>
+                        <p>🏔️ MOUNTAIN TRAILS ───> ONLY 4x4 Trucks, SUVs, Park Ranger Units</p>
+                        <p>──────────────────────────────────────────────────────────────</p>
+                        <p>🅿️ BASE PARKING   ───> ALL Sedans, Sports Cars, Exotics</p>
+                    </div>
+
+                    <h3>5.6 Vehicular Pursuit Tactical Speed Caps</h3>
+                    <p><strong>The 120 MPH Termination Ceiling:</strong> To preserve public safety and simulate realistic departmental liabilities, all standard marked patrol cruisers must instantly terminate active pursuits the exact second a fleeing suspect's velocity passes 120 MPH. Standard units must deactivate emergency lights, drop out of the pursuit line, and pull safely over to the right-hand shoulder.</p>
+                    <p><strong>The Interceptor Exception:</strong> A pursuit exceeding 120 MPH may only continue if a certified, rank-authorized High-Speed Unit (HSU) interceptor vehicle takes over the primary position at the front of the chase. Standard units may only follow at a safe distance in a secondary support capacity.</p>
+
+                    <h3>5.7 Tactical Grappler Bumper Deployment Code</h3>
+                    <p>The mechanical Grappler Device bumper is a high-risk, high-reward tactical asset that launches a heavy nylon mesh to wrap and lock a suspect vehicle's rear axle.</p>
+                    <ul>
+                        <li><strong>Deployment Authorization Matrix:</strong> This mechanical asset is restricted exclusively to certified High-Speed Pursuit Vehicles and may only be triggered by operators holding specialized tactical certifications.</li>
+                        <li><strong>The Malicious Misuse Act:</strong> Deploying the grappler mesh at velocities exceeding 100 MPH, launching it at completely stationary vehicles, or misusing the device against regular civilian traffic during a minor traffic stop will result in an immediate administrative court-martial, stripping of LEO ranks, and a permanent Tier III moderation log.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Interactive Flip Cards for Blacklisted Assets -->
+        <section class="interactive-section">
+            <h2 class="section-title"><i class="fa-solid fa-triangle-exclamation"></i> Blacklisted Asset Registry (Click Card to Flip)</h2>
+            <div class="flip-cards-container">
+                
+                <!-- Card 1 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fa-solid fa-car-burst asset-icon"></i>
+                            <h3>Blacklisted Vehicles</h3>
+                            <span class="flip-hint">Click to inspect</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>[BLACKLISTED ASSETS]</h4>
+                            <ul class="blacklist-ul">
+                                <li>Chevlon Corbeta TZ</li>
+                                <li>BKM Risen Roadster</li>
+                                <li>Falcon Heritage</li>
+                                <li>Strugatti Ettore</li>
+                                <li>Surrey 650S</li>
+                                <li>Bullhorn Determinator SFP Blackjack Widebody</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fa-solid fa-person-military-rifle asset-icon"></i>
+                            <h3>Restricted Firearms</h3>
+                            <span class="flip-hint">Click to inspect</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>[FORBIDDEN ARMAMENTS]</h4>
+                            <ul class="blacklist-ul">
+                                <li>High-Caliber Sniper Rifles</li>
+                                <li>Tactical Combat Shotguns</li>
+                                <li>Premium Gamepass Weaponry</li>
+                                <li>M249 Squad Automatic Weapon</li>
+                                <li>Vector .45 ACP Submachine Gun</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
 
-        <!-- SECTION 5 -->
-        <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Section 5: Server-Specific Protocols & Departmental Directives</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="accordion-content">
-                <h3>5.1 Staff Command Etiquette & Report Abuse</h3>
-                <p><strong>Legitimate Reporting:</strong> The internal ticket system exists purely to alert active administrators to active, verifiable rule breaches occurring in real-time.</p>
-                <p><strong>The Command Abuse Directive:</strong> Utilizing administrative command prompts, reports, or tickets to demand personal quality-of-life adjustments—such as submitting reports reading <code>:heal me</code>, <code>:wanted false</code>, or begging a staff member to spawn a custom car or alter the server weather cycle—is strictly illegal.</p>
-
-                <h3>5.2 Maintaining Moderation Scene Integrity</h3>
-                <p>When an administrator formally pauses a local scenario to conduct an emergency "Mod Scene," all active physical mechanics and timelines within that zone are frozen.</p>
-                <p>Any player who actively runs into, speaks over, or intentionally drives through an active Mod Scene will be hit with an instant administrative teleportation command away from the coordinates.</p>
-                <ul>
-                    <li><strong>The Trespass Clause:</strong> Attempting to purposefully walk or drive back into a running Mod Scene carries a mandatory Warning. Doing it a second time triggers an immediate Server Kick.</li>
-                    <li><strong>Hostile Intervention:</strong> Discharging any firearm, throwing an explosive, or attempting to run over an administrator/suspect during a running Mod Scene carries an immediate 30-Day Network Ban.</li>
-                </ul>
-
-                <h3>5.3 Technical Integrity Directive (Exploiting & Glitching)</h3>
-                <p><strong>Statutory Definition:</strong> The execution of external third-party software executables (injectors), running custom Lua script matrices, or intentionally abusing broken map collisions, infinite money loops, or transparent wall assets to obtain an asymmetric advantage over other players.</p>
-                <p class="disaster-callout"><strong>THE PENALTY:</strong> An immediate, non-appealable, permanent hardware-ID linked ban from all BSRP networks and companion servers.</p>
-
-                <h3>5.4 Faction Compliance, Dress Codes, & Asset Management</h3>
-                <p><strong>The Whitelist Barrier:</strong> Public players may not roleplay as specialist civil servants. Operating within non-whitelisted departments requires passing formal written examinations, background checks, and practical academy training before stepping foot in advanced subdivisions (e.g., SWAT, Narcotics, K9, or Air Support).</p>
-                <p><strong>The Uniform Discipline Act:</strong> On-duty public servants must wear the exact, pixel-perfect uniform profile mapped to their current active rank and unit designation. Mixing tactical gear with civilian street clothing (e.g., wearing a police vest over civilian hoodies and sweatpants) is completely prohibited.</p>
-                <p><strong>Asset Identity & Livery Mandate:</strong> All departmental emergency fleets must exclusively utilize verified, high-resolution Bayou State Roleplay (BSRP) local branding liveries. The importation, usage, or hot-linking of old assets, generic templates, or assets explicitly belonging to alternate roleplay networks (such as standard, un-edited PRC assets) is thoroughly illegal.</p>
-
-                <h3>5.5 Highrock Park Topographical Management Act</h3>
-                <p>The Mountain Fleet Restriction: Highrock Park features dangerous, un-paved, mud-slicked mountain trails. Only high-clearance SUVs, dedicated 4x4 off-road pickup trucks, and official Park Ranger tactical utility units are legally permitted past the main lower ranger station and onto the mountain roads.</p>
-                <p>Sedan Allocation Zones: All low-clearance commuter sedans, sports cars, exotics, and lowered custom trucks must park cleanly within the designated asphalt parking bays at the absolute base of the valley trails.</p>
-                
-                <!-- Graphic Law Display Element -->
-                <div class="law-display-box">
-                    <div class="law-row">
-                        <span class="law-badge high-zone">🏔️ MOUNTAIN TRAILS</span>
-                        <span class="law-desc">ONLY 4x4 Trucks, SUVs, Park Ranger Units</span>
-                    </div>
-                    <div class="law-row">
-                        <span class="law-badge low-zone">🅿️ BASE PARKING</span>
-                        <span class="law-desc">ALL Sedans, Sports Cars, Exotics</span>
-                    </div>
-                </div>
-
-                <h3>5.6 Vehicular Pursuit Tactical Speed Caps</h3>
-                <p><strong>The 120 MPH Termination Ceiling:</strong> To preserve public safety and simulate realistic departmental liabilities, all standard marked patrol cruisers must instantly terminate active pursuits the exact second a fleeing suspect's velocity passes 120 MPH. Standard units must deactivate emergency lights, drop out of the pursuit line, and pull safely over to the right-hand shoulder.</p>
-                <p><strong>The Interceptor Exception:</strong> A pursuit exceeding 120 MPH may only continue if a certified, rank-authorized High-Speed Unit (HSU) interceptor vehicle takes over the primary position at the front of the chase. Standard units may only follow at a safe distance in a secondary support capacity.</p>
-
-                <h3>5.7 Tactical Grappler Bumper Deployment Code</h3>
-                <p>The mechanical Grappler Device bumper is a high-risk, high-reward tactical asset that launches a heavy nylon mesh to wrap and lock a suspect vehicle's rear axle.</p>
-                <ul>
-                    <li><strong>Deployment Authorization Matrix:</strong> This mechanical asset is restricted exclusively to certified High-Speed Pursuit Vehicles and may only be triggered by operators holding specialized tactical certifications.</li>
-                    <li><strong>The Malicious Misuse Act:</strong> Deploying the grappler mesh at velocities exceeding 100 MPH, launching it at completely stationary vehicles, or misusing the device against regular civilian traffic during a minor traffic stop will result in an immediate administrative court-martial, stripping of LEO ranks, and a permanent Tier III moderation log.</li>
-                </ul>
+        <!-- Section 6 closing statement -->
+        <section class="closing-declaration">
+            <div class="declaration-card">
+                <h3><i class="fa-solid fa-signature"></i> Section 6: Closing Legislative Declaration</h3>
+                <p>Every regulation, metric, sub-clause, and restriction contained within this document has been rigorously engineered to protect the quality, longevity, and immersion of Bayou State Roleplay. We expect our citizens to hold themselves to the highest standards of behavioral integrity. Your choices define your story—make them count. Thank you for choosing BSRP!</p>
             </div>
-        </div>
-
-        <!-- SECTION 6 -->
-        <div class="accordion-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span>Section 6: Closing Legislative Declaration</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="accordion-content closing-declaration">
-                <p>Every regulation, metric, sub-clause, and restriction contained within this document has been rigorously engineered to protect the quality, longevity, and immersion of Bayou State Roleplay. We expect our citizens to hold themselves to the highest standards of behavioral integrity.</p>
-                <h4 class="motto">Your choices define your story—make them count.</h4>
-                <p class="thanks">Thank you for choosing BSRP!</p>
-            </div>
-        </div>
+        </section>
 
     </main>
 
-    <!-- Footer Area -->
     <footer>
-        <p>&copy; 2026 Bayou State Roleplay | Livingston, LA. All Rights Reserved.</p>
+        <p>&copy; 2026 Bayou State Roleplay. Engineered for Absolute High-Fidelity Realism.</p>
     </footer>
 
-    <!-- Interactive JS Functionality Engine -->
+    <!-- JavaScript Infrastructure -->
     <script>
-        // Smooth Accordion Controller
+        // Carousel Engine
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("carousel-slide");
+        
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slides[slideIndex].classList.add("active");
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            showSlides();
+        }
+
+        // Accordion Management
         function toggleAccordion(header) {
             const item = header.parentElement;
-            
-            // Close other sections smoothly to look hyper-polished
-            const allItems = document.querySelectorAll('.accordion-item');
-            allItems.forEach(i => {
-                if (i !== item) {
-                    i.classList.remove('open');
-                }
-            });
+            item.classList.toggle("open");
+        }
 
-            item.classList.toggle('open');
+        // Real-Time Search Filtering Engine
+        function searchRules() {
+            let input = document.getElementById('ruleSearch').value.toLowerCase();
+            let targets = document.getElementsByClassName('search-target');
+
+            for (let i = 0; i < targets.length; i++) {
+                let contentText = targets[i].innerText.toLowerCase();
+                if (contentText.includes(input)) {
+                    targets[i].style.display = "";
+                    // Auto-open accordion if looking up active keyword items
+                    if (input.length > 2) {
+                        targets[i].classList.add("open");
+                    }
+                } else {
+                    targets[i].style.display = "none";
+                    targets[i].classList.remove("open");
+                }
+            }
         }
     </script>
 </body>
