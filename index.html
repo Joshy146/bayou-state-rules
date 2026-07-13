@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayou State Roleplay | Official Rules</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for cool icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <!-- Replace 'logo.png' later with your actual uploaded logo filename -->
+            <img src="logo.png" alt="BSRP Logo" class="logo-animation">
+            <h1>Bayou State Roleplay</h1>
+            <p class="subtitle">Official Code of Conduct & Operational Regulations</p>
+        </div>
+    </header>
+
+    <!-- Notice Bar -->
+    <div class="notice-bar">
+        <i class="fa-solid fa-gavel animate-gavel"></i>
+        <span><strong>CRITICAL NOTICE:</strong> By accessing BSRP assets, you enter a binding contract to comply fully with these regulations.</span>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="container">
+
+        <!-- Interactive Carousel for the 3 Pillars -->
+        <section class="interactive-section">
+            <h2 class="section-title"><i class="fa-solid fa-moss"></i> The Three Pillars of BSRP</h2>
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <h3><i class="fa-solid fa-shield-halved"></i> 1. Mechanical Realism</h3>
+                    <p>Uncompromising mechanical and narrative realism engineered for high-fidelity immersion.</p>
+                </div>
+                <div class="carousel-slide">
+                    <h3><i class="fa-solid fa-code-branch"></i> 2. Adaptive Legislation</h3>
+                    <p>Guidelines continuously audited, adjusted, and expanded based on empirical community feedback.</p>
+                </div>
+                <div class="carousel-slide">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> 3. Blind Fairness</h3>
+                    <p>Absolute administrative neutrality derived directly from historical Anglo-American legal traditions.</p>
+                </div>
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- Rule Accordions / Dropdowns -->
+        <section class="rules-section">
+            <h2 class="section-title"><i class="fa-solid fa-scroll"></i> Statutory Penal Codes</h2>
+
+            <!-- Section 1 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Section 1: Preface & Jurisdictional Foundations</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <h3>1.1 Legislative Mission Statement</h3>
+                    <p>Welcome to Bayou State Roleplay (BSRP). BSRP stands as a premier high-fidelity, serious roleplay community. Our administration is built upon three non-negotiable pillars: uncompromising mechanical and narrative realism, proactive community-driven development, and absolute blind administrative fairness.</p>
+                    <h3>1.2 The Open Feedback Loop (#suggestions)</h3>
+                    <p>Any community suggestion that maintains a net-positive approval rating above 75% over a continuous 7-day period is automatically escalated to the High Command Legislative Docket for Sunday reviews.</p>
+                    <h3>1.3 Adaptive Enforcement</h3>
+                    <p>The phrase "I didn't know the rule changed" does not constitute a valid defense. It is your personal responsibility to review the Changelog channel before connecting.</p>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Section 2: Evidentiary Protocols & Disciplinary Matrix</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="legal-box">
+                        <h4>The Two-Pronged Legal Burden</h4>
+                        <p><strong>Actus Reus:</strong> The Guilty Act (Verifiable objective logs/video evidence).</p>
+                        <p><strong>Mens Rea:</strong> The Guilty Mind (Proven intent to disrupt or exploit).</p>
+                    </div>
+                    <h3>2.2 Unaffiliated Three-Witness Rule</h3>
+                    <p>Verbal statements from individuals with shared factional, gang, or social ties are disregarded. To convict without video, 3 completely independent, unrelated witnesses must submit identical accounts.</p>
+                    <h3>2.3 Cumulative Disciplinary Matrix</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr><th>Tier</th><th>Trigger</th><th>Consequence</th></tr>
+                            <tr><td>Tier I</td><td>First Offense</td><td>1 Formal Verbal Warning</td></tr>
+                            <tr><td>Tier II</td><td>3 Warnings</td><td>1-Hour Network Server Kick</td></tr>
+                            <tr><td>Tier III</td><td>8 Warnings / 2 Kicks</td><td>14-Day Structural Server Ban</td></tr>
+                            <tr><td>Tier IV</td><td>3 Historic Temp Bans</td><td>Permanent Account Blacklist</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Section 3: In-Game Mechanics & Roleplay Regulations</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <h3>3.2 Fail Roleplay (FRP)</h3>
+                    <p>Prohibited actions include: Superhuman sprints after falling 40+ feet, remaining submerged underwater for over 120 seconds, and driving standard sedans up vertical swamp embankments.</p>
+                    <h3>3.4 Random Deathmatch (RDM) Protocol</h3>
+                    <p>Before pulling a weapon, you must meet the 3-step execution protocol: Clear Verbal/Text Demands -> 5-Second Compliance Window -> Active Hostile Aggression from target.</p>
+                    <h3>3.7 Leaving to Avoid Roleplay (LTAP/LTAR)</h3>
+                    <p>If your game client crashes, you are allocated exactly a 5-minute (300 second) grace window to log back in and open a ticket to resume the scene, or it is deemed a violation.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Interactive Flip Cards for Blacklisted Assets -->
+        <section class="interactive-section">
+            <h2 class="section-title"><i class="fa-solid fa-triangle-exclamation"></i> Blacklisted Asset Classifications (Click to Flip)</h2>
+            <div class="flip-cards-container">
+                
+                <!-- Card 1 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fa-solid fa-car-burst asset-icon"></i>
+                            <h3>Restricted Hypercars</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p><strong>Banned Public Vehicles:</strong></p>
+                            <ul>
+                                <li>Chevlon Corbeta TZ</li>
+                                <li>BKM Risen Roadster</li>
+                                <li>Falcon Heritage</li>
+                                <li>Strugatti Ettore</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fa-solid fa-person-military-rifle asset-icon"></i>
+                            <h3>Tactical Firearms</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p><strong>Restricted Armaments:</strong></p>
+                            <ul>
+                                <li>High-Caliber Sniper Rifles</li>
+                                <li>Tactical Combat Shotguns</li>
+                                <li>M249 SAW Light Machine Gun</li>
+                                <li>Vector .45 ACP SMG</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bayou State Roleplay. Engineered for absolute immersion.</p>
+    </footer>
+
+    <!-- JavaScript for Animations, Carousels, and Dropdowns -->
+    <script>
+        // Carousel Script
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("carousel-slide");
+        
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slides[slideIndex].classList.add("active");
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            showSlides();
+        }
+
+        // Accordion Script
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            item.classList.toggle("open");
+        }
+    </script>
+</body>
+</html>
