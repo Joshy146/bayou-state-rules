@@ -4,39 +4,476 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bayou State Roleplay | Official Rules</title>
-    <!-- We make sure this link is absolute and correct -->
-    <link rel="stylesheet" href="./style.css">
-    <!-- Add FontAwesome for icons -->
+    
+    <!-- Google Fonts & FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- SELF-CONTAINED BAYOU STYLING (No separate CSS file required) -->
+    <style>
+        :root {
+            --swamp-dark: #080f0d;
+            --bayou-moss: #152620;
+            --sunset-gold: #d4af37;
+            --river-blue: #233e44;
+            --text-light: #e2e6e4;
+            --warning-red: #721c24;
+            --warning-border: #f5c6cb;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--swamp-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 15%, rgba(35, 62, 68, 0.25), transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Hero / Header Section */
+        .hero {
+            position: relative;
+            padding: 50px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #111e1a 0%, var(--swamp-dark) 100%);
+            border-bottom: 4px solid var(--sunset-gold);
+        }
+
+        .logo-floating {
+            max-width: 170px;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            margin: 15px 0 5px;
+            color: var(--sunset-gold);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #a4b3ae;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Banner Notification */
+        .notice-bar {
+            background-color: #58121a;
+            color: #fff;
+            padding: 18px 25px;
+            text-align: center;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--warning-red);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .notice-bar i {
+            color: var(--sunset-gold);
+            font-size: 1.3rem;
+            animation: pound 2.5s infinite;
+        }
+
+        @keyframes pound {
+            0%, 100%, 20% { transform: rotate(0deg); }
+            10% { transform: rotate(-20deg); }
+            15% { transform: rotate(15deg); }
+        }
+
+        /* Infrastructure Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* Live Search Bar */
+        .search-container {
+            margin-bottom: 30px;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(21, 38, 32, 0.7);
+            border: 1px solid var(--river-blue);
+            border-radius: 30px;
+            padding: 5px 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .search-box i {
+            color: var(--sunset-gold);
+            font-size: 1.1rem;
+            margin-right: 15px;
+        }
+        .search-box input {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            width: 100%;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            outline: none;
+            font-family: inherit;
+        }
+
+        /* Carousel Panel */
+        .carousel-container {
+            position: relative;
+            background: rgba(21, 38, 32, 0.4);
+            border: 1px solid rgba(35, 62, 68, 0.6);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .carousel-slide {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        .carousel-slide h3 {
+            color: var(--sunset-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: var(--sunset-gold);
+            border: 1px solid var(--river-blue);
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            border-radius: 50%;
+            transition: 0.2s;
+        }
+        .carousel-btn:hover { background: var(--sunset-gold); color: var(--swamp-dark); }
+        .prev { left: 15px; }
+        .next { right: 15px; }
+
+        /* Accordion Structure */
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: var(--sunset-gold);
+            border-bottom: 2px solid var(--river-blue);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+        }
+        .accordion-item {
+            background: rgba(13, 24, 21, 0.85);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--river-blue);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .accordion-item:hover {
+            border-left-color: var(--sunset-gold);
+            background: rgba(17, 31, 27, 0.9);
+        }
+        .accordion-header {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 22px 25px;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-family: inherit;
+        }
+        .accordion-header i {
+            transition: transform 0.3s ease;
+            color: var(--sunset-gold);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 30px;
+            background: rgba(0, 0, 0, 0.3);
+            transition: max-height 0.4s ease-out, padding 0.4s ease;
+        }
+        .accordion-item.open .accordion-content {
+            max-height: 8000px; /* Accommodates long rule texts fully */
+            padding: 25px 30px;
+        }
+        .accordion-item.open .accordion-header i {
+            transform: rotate(180deg);
+        }
+
+        /* Inner Rules Content Style */
+        .accordion-content h3 {
+            color: var(--sunset-gold);
+            margin-top: 30px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 5px;
+        }
+        .accordion-content h4 {
+            color: #a4b3ae;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        .accordion-content ul, .accordion-content ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .accordion-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Text Styling Blocks */
+        blockquote {
+            border-left: 4px solid var(--sunset-gold);
+            background: rgba(212, 175, 55, 0.05);
+            padding: 12px 20px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .legal-diagram {
+            background: #040807;
+            border: 1px solid rgba(35, 62, 68, 0.8);
+            padding: 20px;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+            border-radius: 6px;
+            color: #4af2a1;
+            margin: 25px 0;
+            line-height: 1.2;
+        }
+        
+        /* Tables Management */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 6px;
+            border: 1px solid var(--river-blue);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(35, 62, 68, 0.4);
+        }
+        th {
+            background-color: var(--bayou-moss);
+            color: var(--sunset-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background: rgba(21, 38, 32, 0.3); }
+
+        /* Interactive Flip Cards */
+        .flip-cards-container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: calc(50% - 13px);
+            height: 340px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        @media(max-width: 768px) {
+            .flip-card { width: 100%; height: auto; min-height: 340px; }
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            box-sizing: border-box;
+            padding: 30px;
+        }
+        .flip-card-front {
+            background: linear-gradient(135deg, var(--bayou-moss) 0%, var(--swamp-dark) 100%);
+            border: 1px solid var(--river-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        .flip-card-back {
+            background: #122420;
+            border: 2px solid var(--sunset-gold);
+            transform: rotateY(180deg);
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+        .asset-icon {
+            font-size: 3.2rem;
+            color: var(--sunset-gold);
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+        .flip-hint {
+            font-size: 0.8rem;
+            color: #5d8277;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+        .blacklist-ul {
+            padding-left: 20px;
+            margin: 15px 0 0 0;
+        }
+        .blacklist-ul li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: #e2e6e4;
+        }
+
+        /* Closing Signoff Block */
+        .closing-card {
+            background: linear-gradient(135deg, #0e1c18 0%, #040807 100%);
+            border: 1px solid var(--sunset-gold);
+            padding: 35px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        .closing-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--sunset-gold);
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #040706;
+            font-size: 0.85rem;
+            color: #4f635d;
+            border-top: 1px solid #111;
+            margin-top: 60px;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
 </head>
 <body>
 
-    <!-- Header Section (This is the top part in the logo) -->
+    <!-- Hero Header -->
     <header class="hero">
         <div class="hero-content">
-            <!-- Ensure your uploaded logo is named logo.png -->
             <img src="./logo.png" alt="BSRP Logo" class="logo-floating">
-            <h1 class="louisiana-font">Bayou State Roleplay (BSRP)</h1>
+            <h1>Bayou State Roleplay (BSRP)</h1>
             <p>Official Comprehensive Code of Conduct, Statutory Rules, and Operational Regulations</p>
         </div>
     </header>
 
+    <!-- Global Notice Bar -->
+    <div class="notice-bar">
+        <i class="fa-solid fa-gavel"></i>
+        <span><strong>IMPORTANT NOTICE:</strong> By accessing Bayou State Roleplay — including our ingame server, Discord server, custom CAD/MDT systems, forums, or any affiliated platform — you automatically enter into a binding agreement to comply fully with the rules and policies outlined below. Failure to do so will result in administrative disciplinary actions up to and including immediate, permanent global removal from all current and future platforms.</span>
+    </div>
+
+    <!-- Main Core Workspace -->
     <main class="container">
-        
-        <!-- Notice Box (The bright red warning) -->
-        <div class="rules-notice">
-            <h2><i class="fa-solid fa-triangle-exclamation"></i> IMPORTANT NOTICE</h2>
-            <p>By accessing Bayou State Roleplay — including our ingame server, Discord server, custom CAD/MDT systems, forums, or any affiliated platform — you automatically enter into a binding agreement to comply fully with the rules and policies outlined below. Failure to do so will result in administrative disciplinary actions up to and including immediate, permanent global removal from all current and future platforms.</p>
-        </div>
 
-        <h2 class="section-header">Statutory Codes</h2>
+        <!-- Live Content Search Module -->
+        <section class="search-container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="ruleSearch" onkeyup="filterRules()" placeholder="Search penal codes or operational terms (e.g., RDM, FRP, LEO, Box)...">
+            </div>
+        </section>
 
-        <!-- *** Dropdowns Section *** -->
+        <!-- Carousel Presentation Layout -->
+        <section class="interactive-panel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Pillar I: Uncompromising Realism</h3>
+                    <p>Built upon non-negotiable architectural foundations prioritizing absolute high-fidelity mechanical and narrative realism across all simulation parameters.</p>
+                </div>
+                <div class="carousel-slide">
+                    <h3><i class="fa-solid fa-code-branch"></i> Pillar II: Adaptive Legislation</h3>
+                    <p>Evolving statutory frameworks dynamically adjusted and updated directly via empirical asset performance metrics and structured platform feedback infrastructure.</p>
+                </div>
+                <div class="carousel-slide">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> Pillar III: Blind Administration</h3>
+                    <p>Total operational transparency engineered to enforce guidelines with absolute systemic neutrality, eradicating personal bias or executive command overreach.</p>
+                </div>
+                <button class="carousel-btn prev" onclick="shiftSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="shiftSlide(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- Main Codified Laws System Layout -->
+        <h2 class="section-title"><i class="fa-solid fa-scroll"></i> Codex of Codified Regulations</h2>
         <div class="accordion-container">
-            
-            <!-- SECTION 1 (Open by default) -->
-            <div class="accordion-item open">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
+
+            <!-- SECTION 1 -->
+            <div class="accordion-item search-node">
+                <button class="accordion-header" onclick="handleAccordion(this)">
                     <span>Section 1: Preface, Vision, & Jurisdictional Foundations</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
@@ -44,108 +481,377 @@
                     <h3>1.1 Legislative Mission Statement</h3>
                     <p>Welcome to Bayou State Roleplay (BSRP). BSRP stands as a premier high-fidelity, serious roleplay community. Our administration is built upon three non-negotiable pillars: uncompromising mechanical and narrative realism, proactive community-driven development, and absolute blind administrative fairness.</p>
                     <p>Unlike standard roleplay servers that operate under a static, dictatorial legal framework, BSRP utilizes an Adaptive Legislative Model. We recognize that a thriving virtual ecosystem requires evolving guidelines. Our rules are continuously audited, adjusted, and expanded based on empirical gameplay data and community feedback.</p>
+                    
                     <h3>1.2 The Open Feedback Loop (#suggestions)</h3>
-                    <p>Every citizen of BSRP possesses an active legislative voice. Any community suggestion that maintains a net-positive approval rating above 75% over a continuous 7-day period is automatically escalated to the High Command Legislative Docket.</p>
-                    <h3>1.3 Adaptive Enforcement</h3>
-                    <p>While our statutory codes are dynamic, our enforcement is unyielding. The phrase "I didn't know the rule changed" does not constitute a valid defense. It is the absolute, personal responsibility of every community member to review the Changelog channel prior to connecting to the game servers.</p>
+                    <p>Every citizen of BSRP possesses an active legislative voice. Our official Discord ecosystem hosts a structured #suggestions channel utilizing an automated upvote/downvote and indexing matrix.</p>
+                    <blockquote>
+                        <strong>The Review Pipeline:</strong> Any community suggestion that maintains a net-positive approval rating above 75% over a continuous 7-day period is automatically escalated to the High Command Legislative Docket.
+                    </blockquote>
+                    <blockquote>
+                        <strong>Administrative Review:</strong> The High Command Advisory Board meets every Sunday to formally review escalated suggestions, drafting them into formal server text amendments if they align with performance boundaries and realism goals.
+                    </blockquote>
+
+                    <h3>1.3 The Concept of Adaptive Enforcement</h3>
+                    <p>While our statutory codes are dynamic, our enforcement is unyielding. The phrase "I didn't know the rule changed" does not constitute a valid defense. It is the absolute, personal responsibility of every community member to review the Changelog channel prior to connecting to the game servers. By bypassing the connection splash screen, you enter a binding, enforceable contract to adhere to these high-fidelity standards.</p>
                 </div>
             </div>
 
             <!-- SECTION 2 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
+            <div class="accordion-item search-node">
+                <button class="accordion-header" onclick="handleAccordion(this)">
                     <span>Section 2: Administrative Jurisprudence & Evidentiary Protocols</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="accordion-content">
                     <p>To completely eliminate administrative bias, personal vendettas, and "staff power-tripping," BSRP operates under a strict, formalized judicial system derived from Anglo-American legal traditions. A staff member cannot issue a punitive verdict based on a hunch or unverified claim.</p>
-                    <!-- Here is that ASCII diagram from your text -->
+                    
                     <pre class="legal-diagram">
- ┌────────────────────────────────────────┐
- │      BSRP EVIDENTIARY CONVICTION       │
- └───────────────────┬────────────────────┘
+┌────────────────────────────────────────┐
+│      BSRP EVIDENTIARY CONVICTION       │
+└───────────────────┬────────────────────┘
                     │
-     ┌──────────────┴───────────┐
-     ▼                          ▼
-┌─────────────┐           ┌─────────────┐
-│   ACTUS REUS    │           │    MENS REA     │
-│ (The Guilty Act)│           │(The Guilty Mind)│
-├─────────────┤           ├─────────────┤
-│ Concrete evidence│           │ Proven intent to│
-│ that an infraction│           │ troll, exploit, or│
-│ occurred.         │           │ maliciously disrupt│
-└─────────────┘           └─────────────┘
-                    </pre>
+      ┌─────────────┴─────────────┐
+      ▼                           ▼
+┌─────────────────────────┐ ┌─────────────────────────┐
+│       ACTUS REUS        │ │        MENS REA         │
+│    (The Guilty Act)     │ │    (The Guilty Mind)    │
+├─────────────────────────┤ ├─────────────────────────┤
+│ Concrete evidence that  │ │ Proven intent to troll, │
+│ an infraction occurred  │ │ exploit, or maliciously │
+│ via logs, video, etc.   │ │ disrupt the server.     │
+└─────────────────────────┘ └─────────────────────────┘</pre>
+
                     <h3>2.1 The Two-Pronged Legal Burden</h3>
-                    <p>To sustain a formal infraction log or ban, the presiding Staff Member must successfully prove Actus Reus (Objective, verifiable, and physical evidence that the server rule was violated) AND Mens Rea (Clear evidence of intent to disrupt the roleplay environment).</p>
-                    <p><em>(I have truncated the other subsections of Section 2 here for brevity, but you can paste the rest of your rule text inside this content div)</em></p>
+                    <p>To sustain a formal infraction log or ban, the presiding Staff Member must successfully prove two distinct elements:</p>
+                    <ul>
+                        <li><strong>Actus Reus (The Guilty Act):</strong> Objective, verifiable, and physical evidence that the server rule was violated. This must be established via raw, unaltered game logs, server analytics, or clear visual media.</li>
+                        <li><strong>Mens Rea (The Guilty Mind):</strong> Clear evidence of intent to disrupt the roleplay environment, troll, exploit, or bypass server limitations. If a player breaks a rule due to an unpreventable mechanical client glitch or an unpredictable server-side desynchronization event, Mens Rea is void, and zero punitive actions may be taken.</li>
+                    </ul>
+
+                    <h3>2.2 Evidentiary Standards & Witness Corroboration Matrix</h3>
+                    <p><strong>The Unaffiliated Three-Witness Rule:</strong> Verbal or text-based witness statements are strictly disregarded if they originate from individuals with any shared social, factional, gang, or business ties to the victim or the accuser. To convict a player based purely on witness testimony without video backup, exactly three (3) completely independent, unrelated, and geographically separated witnesses must submit identical, unprompted accounts of the event to Staff.</p>
+                    <p><strong>Unaltered Video Capture Protocol:</strong> Video evidence remains the absolute gold standard of administrative appeals. All submissions must utilize continuous capture platforms (e.g., Medal, OBS, Shadowplay).</p>
+                    <ul>
+                        <li><strong>Context Rule:</strong> Video clips must explicitly capture a minimum of 60 seconds of gameplay immediately PRIOR to the alleged incident (to establish narrative context and provocation) and 30 seconds IMMEDIATELY FOLLOWING the incident.</li>
+                        <li><strong>Void Triggers:</strong> Any video submission that is edited, cropped, visually filtered, speed-altered, or stripped of its raw in-game audio will be instantly thrown out of the ticket.</li>
+                    </ul>
+                    <p><strong>The Verbal Warning Safe Harbor:</strong> Every player is granted exactly one (1) verbal warning per specific offense category over the entire lifespan of their account, provided that the infractions do not involve explicit malicious hacking, exploitation, or discrimination. Verbal warnings are designed to educate well-meaning players on nuance, not to shield chronic offenders.</p>
+
+                    <h3>2.3 The Cumulative Disciplinary Escalation Matrix</h3>
+                    <p>Disciplinary records at BSRP are permanent ledger entries tied permanently to your unique account identifiers (Roblox User ID, GUID, and Discord Snowflake ID). Our records never expire, decay, or reset.</p>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Milestone / Tier</th>
+                                    <th>Mechanical Trigger</th>
+                                    <th>Immediate Consequence</th>
+                                    <th>Escalation & Recidivism Clause</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Tier I</strong></td>
+                                    <td>First recorded category offense.</td>
+                                    <td>1 Formal Verbal Warning</td>
+                                    <td>Logged in the global moderation database; explicitly details the rule clause broken.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tier II</strong></td>
+                                    <td>Accumulation of three (3) warnings of any type.</td>
+                                    <td>1-Hour Network Server Kick</td>
+                                    <td>A forced connection drop. Any attempt to rejoin before the hour expires via alt accounts or VPNs triggers a 14-day Ban.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tier III</strong></td>
+                                    <td>Accumulation of eight (8) warnings OR two (2) kicks within a rolling 28-day window.</td>
+                                    <td>14-Day Structural Server Ban</td>
+                                    <td>Immediate stripping of all active departmental, factional, and leadership ranks.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tier IV</strong></td>
+                                    <td>Accumulation of three (3) separate temporary bans historically.</td>
+                                    <td>Permanent Account Blacklist</td>
+                                    <td>Complete removal from all BSRP assets. Appealable exactly 30 days post-ban via the Appeal Server.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>2.4 Data Removal, Privacy Requests, & Permanent Forfeiture</h3>
+                    <p>In strict compliance with modern digital privacy frameworks, any community member has the right to formally request the absolute erasure of their historical records, CAD profiles, and personal data from our hosting infrastructure.</p>
+                    <blockquote>
+                        <strong>CRITICAL NOTICE ON DATA REMOVAL:</strong> Because our administrative security apparatus requires continuous, un-broken historical logs to track malicious actors and recidivist rule-breakers, the execution of a data removal request results in an immediate, automated, and irreversible permanent ban from all BSRP assets. This is a security measure to prevent individuals from wiping their disciplinary records to sneak back into the community as a "clean" user.
+                    </blockquote>
                 </div>
             </div>
 
-             <!-- SECTION 3 (You'll paste the big rules like RDM/VDM here) -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
+            <!-- SECTION 3 -->
+            <div class="accordion-item search-node">
+                <button class="accordion-header" onclick="handleAccordion(this)">
                     <span>Section 3: In-Game Mechanics & Core Roleplay Regulations</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="accordion-content">
-                    <p>Paste all of your Section 3 text right here. Every rule like 3.2 FRP, 3.4 RDM, etc., goes in this spot. It will all be contained inside this dropdown.</p>
+                    <h3>3.1 Out-Of-Character (OOC) Decorum & Respect</h3>
+                    <p><strong>The Baseline:</strong> The Out-of-Character channels (/ooc, /b, global text boxes) are strictly reserved for technical troubleshooting and minor administrative notifications.</p>
+                    <p><strong>Prohibitions:</strong> Using OOC channels to criticize another player’s roleplay quality, argue over an ongoing tactical scenario, bait law enforcement, or flame an opposing faction is completely banned.</p>
+                    <p><strong>Hate Speech & Toxicity:</strong> Any usage of slurs, targeted harassment, dox threats, or xenophobic commentary anywhere within the BSRP network results in an immediate, non-appealable permanent ban on the first offense.</p>
+
+                    <h3>3.2 Fail Roleplay (FRP)</h3>
+                    <p><strong>Statutory Definition:</strong> Engaging in any physical action, vehicular maneuver, or verbal claim that is fundamentally impossible, highly improbable, or completely disruptive to the simulation of a realistic environment.</p>
+                    <h4>Detailed Prohibited Scenarios:</h4>
+                    <ul>
+                        <li><strong>Superhuman Sprints:</strong> Jumping off an elevated structure (such as a highway overpass or a 40-foot bridge) during a foot pursuit, hitting the ground, and immediately resuming a full-speed tactical sprint without simulating broken bones or severe shock.</li>
+                        <li><strong>Sub-Aquatic Extended Breath:</strong> Remaining submerged completely underwater for a duration exceeding 120 seconds to hide from aviation tracking or tracking dogs.</li>
+                        <li><strong>Topographical Defiance:</strong> Intentionally driving standard factory commuter sedans, low-clearance sports cars, or heavy commercial vehicles up vertical, unpaved mountain ridges, muddy swamp embankments, or sheer rock faces.</li>
+                        <li><strong>Physics Abuse:</strong> Utilizing the game engine's physical collision boxes to intentionally roll, flip, or un-wedge a vehicle that has crashed out, without calling a flatbed or tow truck to execute proper /me mechanical recovery roleplay.</li>
+                    </ul>
+
+                    <h3>3.3 No Intent to Roleplay (NITRP)</h3>
+                    <p><strong>Statutory Definition:</strong> Connecting to the BSRP server with zero desire to build stories, engage in dialog, or follow character arcs, choosing instead to act as a chaotic agent focused on optimizing mechanical loops or disrupting others.</p>
+                    <h4>Detailed Prohibited Scenarios:</h4>
+                    <ul>
+                        <li><strong>LEO Baiting:</strong> Continuously doing donuts, burning rubber, or redlining a vehicle at 180+ MPH directly outside a police precinct solely to force a high-speed chase.</li>
+                        <li><strong>Acoustic Trolling:</strong> Standing in highly populated public areas (hospitals, spawn squares) while screaming into your microphone or playing distorted audio tracks.</li>
+                        <li><strong>Scenario Abandonment:</strong> Actively initiating a major, resource-intensive server event (such as a multi-stage bank robbery or jewelry heist) and then logging out or intentionally drowning your character the second law enforcement arrives on scene.</li>
+                    </ul>
+
+                    <h3>3.4 Random Deathmatch (RDM)</h3>
+                    <p><strong>Statutory Definition:</strong> The act of inflicting damage, incapacitating, or murdering an absolute stranger or fellow community member without an extensive, logically sound, and pre-established narrative reason.</p>
+                    <h4>The Formal 3-Step Initiation Protocol:</h4>
+                    <p>Before a lethal weapon can be drawn and fired at another human being, the aggressor must meet the following three criteria:</p>
+                    <ol>
+                        <li><strong>Clear Verbal/Text Demands:</strong> You must issue an explicit, unambiguous demand that can be clearly heard or read by the victim (e.g., "Step out of the vehicle with your hands up or you will be shot").</li>
+                        <li><strong>Reasonable Compliance Window:</strong> You must provide a minimum of five (5) physical seconds for the victim to comprehend and comply with your demands. You cannot say "Drop it or die" and shoot simultaneously.</li>
+                        <li><strong>Active Hostile Aggression:</strong> The target must actively refuse to comply or attempt to flee/draw a weapon.</li>
+                    </ol>
+                    <p><strong>Mass RDM:</strong> The unprovoked execution of three (3) or more individuals within a single localized scene is immediately categorized as NITRP with Malicious Intent and carries a mandatory permanent ban.</p>
+
+                    <h3>3.5 Vehicle Deathmatch (VDM)</h3>
+                    <p><strong>Statutory Definition:</strong> Utilizing any motorized vehicle (car, truck, motorcycle, commercial rig) as a primary weapon, ramming device, or kinetic projectile to inflict bodily harm on a pedestrian or to smash another vehicle into structural failure.</p>
+                    <h4>Absolute Legitimate Exceptions:</h4>
+                    <ul>
+                        <li><strong>The Non-Compliance Clause:</strong> The operator of the opposing vehicle has completely failed to roleplay a previous catastrophic head-on collision, completely ignoring vehicular damage mechanics to continue driving away.</li>
+                        <li><strong>The Tactical Clearance Clause:</strong> An active, highly dangerous tactical perimeter is established, and an individual is already confirmed deceased on the pavement. A vehicle may push through the scene or blockade at realistic, non-lethal speeds strictly below 15 MPH.</li>
+                    </ul>
+
+                    <h3>3.6 Mechanical Execution Regulations (Cuff Rushing & FTA)</h3>
+                    <p><strong>Cuff Rushing:</strong> Law Enforcement Officers are strictly prohibited from sprinting erratically toward an armed or actively resisting suspect and spamming a physical hotkey to mechanically lock them into handcuffs.</p>
+                    <p><strong>The Legal Protocol:</strong> Cuffs may only be applied if the suspect is completely compliant, physically incapacitated via a deployed and successful Taser deployment, or pinned against a structural wall. The LEO must concurrently type or voice-announce the action using standard indicators (e.g., <code>/me deploys metal handcuffs onto the suspect's left and right wrists</code>).</p>
+                    <p><strong>Failing to Act (FTA):</strong> It is illegal to execute complex physical interactions with players or objects using purely mechanical keyboard commands without adding descriptive narrative text or voice.</p>
+                    <p><strong>Required Indicators:</strong> Actions such as slashing a competitor's tires, shattering a shop window, pickpocketing, or disabling a house alarm must be explicitly initiated using clear indicator text (e.g., <code>-slashes front left tire with pocket knife-</code> or <code>*shatters side window pane*</code>).</p>
+
+                    <h3>3.7 Leaving to Avoid Punishment / Roleplay (LTAP / LTAR)</h3>
+                    <p><strong>Statutory Definition:</strong> Voluntarily disconnecting from the BSRP network server to escape a live administrative ticket, avoid a staff interrogation, or preserve virtual assets/items during an active police arrest or violent gang skirmish.</p>
+                    <p><strong>The Hardware Crash Exculpatory Clause:</strong> We recognize that software clients and networks can experience sudden catastrophic failure. If your game client crashes, you are automatically allocated a strict 5-minute grace window to log back into the server, open an emergency Discord ticket, and report back directly to the active staff member or opposing roleplay party to resume the scene exactly where it broke. Failure to report within 300 seconds cements the action as an intentional LTAP violation.</p>
+
+                    <h3>3.8 New Life Rule (NLR)</h3>
+                    <p><strong>Statutory Definition:</strong> Upon experiencing a total health depletion that results in your character "bleeding out" and respawning at a localized municipal hospital or medical clinic, your character is legally considered a completely new entity regarding that specific timeline.</p>
+                    <ul>
+                        <li><strong>The Amnesia Boundaries:</strong> You lose all conscious recollection of the events, conversations, conflicts, and individuals that directly precipitated your demise.</li>
+                        <li><strong>Geographic Exclusion Zone:</strong> You are strictly barred from entering a 1,500-stud physical radius surrounding the exact coordinate node where you died. This exclusion zone remains active for 20 minutes or until the active scenario has completely concluded and all emergency vehicles have cleared the scene.</li>
+                    </ul>
                 </div>
             </div>
 
-             <!-- SECTION 4 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>Section 4: Restricted Areas, Forbidden Roleplays, Weapons, & Vehicles</span>
+            <!-- SECTION 4 -->
+            <div class="accordion-item search-node">
+                <button class="accordion-header" onclick="handleAccordion(this)">
+                    <span>Section 4: Restricted Areas, Forbidden Roleplays, Weapons, & Vehicles (RARWV)</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="accordion-content">
-                    <p>Paste all of Section 4 text here.</p>
+                    <h3>4.1 Hardcoded Safe Zones</h3>
+                    <p>The following spatial locations are defined as hardcoded sanctuary environments. The deployment of weapons, execution of criminal acts, or baiting of personnel within these zones is mechanically and legally blockaded:</p>
+                    <ul>
+                        <li>All Civilian Initial Spawn Squares and Welcome Centers.</li>
+                        <li>All Police Department Interiors, Secure Armories, Muster Rooms, and Gated Fleet Garages.</li>
+                        <li>The State Penitentiary Complex, Courtrooms, and Regional Holding Facilities.</li>
+                        <li>All Hospital Emergency Ward entry bays, interior check-in areas, and surgical theaters.</li>
+                    </ul>
+
+                    <h3>4.2 Categorically Prohibited Roleplay Scenarios</h3>
+                    <p>BSRP prides itself on hosting a mature, premium environment, but we maintain a zero-tolerance boundary for scenarios that veer into extreme real-world psychological trauma or gross violations of human dignity. Engaging in any of the following triggers an immediate, un-appealable global network ban:</p>
+                    <ul>
+                        <li><strong>Asymmetric Terrorism:</strong> Simulating large-scale political terrorism, suicide bombings, or mass casualty events synchronized with real-world geopolitical conflicts.</li>
+                        <li><strong>Self-Harm:</strong> Detailed text or voice depictions of self-inflicted harm or suicide.</li>
+                        <li><strong>ToS Infractions:</strong> Any narrative theme that directly violates the foundational Roblox Terms of Service.</li>
+                        <li><strong>Sexual Deviance & ERP:</strong> Any text, animations, clothing, or verbal dialogue depicting explicit sexual acts, non-consensual sexual assaults, or romantic roleplay involving characters framed as minors.</li>
+                    </ul>
+
+                    <h3>4.3 Asset Classifications: Restricted Armaments & Vehicles</h3>
+                    <p>To preserve server economy balance and prevent our streets from devolving into an arcade-style sandbox, high-performance hypercars and military-grade firepower are restricted exclusively to Server VIP Tiers, Discord Nitro Boosters, and Active Administration Staff.</p>
                 </div>
             </div>
 
-             <!-- SECTION 5 -->
-            <div class="accordion-item">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
+            <!-- SECTION 5 -->
+            <div class="accordion-item search-node">
+                <button class="accordion-header" onclick="handleAccordion(this)">
                     <span>Section 5: Server-Specific Protocols & Departmental Directives</span>
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="accordion-content">
-                    <p>Paste all of Section 5 text here.</p>
+                    <h3>5.1 Staff Command Etiquette & Report Abuse</h3>
+                    <p><strong>Legitimate Reporting:</strong> The internal ticket system exists purely to alert active administrators to active, verifiable rule breaches occurring in real-time.</p>
+                    <p><strong>The Command Abuse Directive:</strong> Utilizing administrative command prompts, reports, or tickets to demand personal quality-of-life adjustments—such as submitting reports reading <code>:heal me</code>, <code>:wanted false</code>, or begging a staff member to spawn a custom car or alter the server weather cycle—is strictly illegal.</p>
+
+                    <h3>5.2 Maintaining Moderation Scene Integrity</h3>
+                    <p>When an administrator formally pauses a local scenario to conduct an emergency "Mod Scene," all active physical mechanics and timelines within that zone are frozen.</p>
+                    <p>Any player who actively runs into, speaks over, or intentionally drives through an active Mod Scene will be hit with an instant administrative teleportation command away from the coordinates.</p>
+                    <ul>
+                        <li><strong>The Trespass Clause:</strong> Attempting to purposefully walk or drive back into a running Mod Scene carries a mandatory Warning. Doing it a second time triggers an immediate Server Kick.</li>
+                        <li><strong>Hostile Intervention:</strong> Discharging any firearm, throwing an explosive, or attempting to run over an administrator/suspect during a running Mod Scene carries an immediate 30-Day Network Ban.</li>
+                    </ul>
+
+                    <h3>5.3 Technical Integrity Directive (Exploiting & Glitching)</h3>
+                    <p><strong>Statutory Definition:</strong> The execution of external third-party software executables (injectors), running custom Lua script matrices, or intentionally abusing broken map collisions, infinite money loops, or transparent wall assets to obtain an asymmetric advantage over other players.</p>
+                    <p><strong>The Penalty:</strong> An immediate, non-appealable, permanent hardware-ID linked ban from all BSRP networks and companion servers.</p>
+
+                    <h3>5.4 Faction Compliance, Dress Codes, & Asset Management</h3>
+                    <p><strong>The Whitelist Barrier:</strong> Public players may not roleplay as specialist civil servants. Operating within non-whitelisted departments requires passing formal written examinations, background checks, and practical academy training before stepping foot in advanced subdivisions (e.g., SWAT, Narcotics, K9, or Air Support).</p>
+                    <p><strong>The Uniform Discipline Act:</strong> On-duty public servants must wear the exact, pixel-perfect uniform profile mapped to their current active rank and unit designation. Mixing tactical gear with civilian street clothing (e.g., wearing a police vest over civilian hoodies and sweatpants) is completely prohibited.</p>
+                    <p><strong>Asset Identity & Livery Mandate:</strong> All departmental emergency fleets must exclusively utilize verified, high-resolution Bayou State Roleplay (BSRP) local branding liveries. The importation, usage, or hot-linking of old assets, generic templates, or assets explicitly belonging to alternate roleplay networks (such as standard, un-edited PRC assets) is thoroughly illegal.</p>
+
+                    <h3>5.5 Highrock Park Topographical Management Act</h3>
+                    <p><strong>The Mountain Fleet Restriction:</strong> Highrock Park features dangerous, un-paved, mud-slicked mountain trails. Only high-clearance SUVs, dedicated 4x4 off-road pickup trucks, and official Park Ranger tactical utility units are legally permitted past the main lower ranger station and onto the mountain roads.</p>
+                    <p><strong>Sedan Allocation Zones:</strong> All low-clearance commuter sedans, sports cars, exotics, and lowered custom trucks must park cleanly within the designated asphalt parking bays at the absolute base of the valley trails.</p>
+                    
+                    <pre class="legal-diagram" style="color: #d4af37;">
+🏔️ HIGHROCK PARK TRANSIT LAW
+🏔️ MOUNTAIN TRAILS ───> ONLY 4x4 Trucks, SUVs, Park Ranger Units
+──────────────────────────────────────────────────────────────
+🅿️ BASE PARKING   ───> ALL Sedans, Sports Cars, Exotics</pre>
+
+                    <h3>5.6 Vehicular Pursuit Tactical Speed Caps</h3>
+                    <p><strong>The 120 MPH Termination Ceiling:</strong> To preserve public safety and simulate realistic departmental liabilities, all standard marked patrol cruisers must instantly terminate active pursuits the exact second a fleeing suspect's velocity passes 120 MPH. Standard units must deactivate emergency lights, drop out of the pursuit line, and pull safely over to the right-hand shoulder.</p>
+                    <p><strong>The Interceptor Exception:</strong> A pursuit exceeding 120 MPH may only continue if a certified, rank-authorized High-Speed Unit (HSU) interceptor vehicle takes over the primary position at the front of the chase. Standard units may only follow at a safe distance in a secondary support capacity.</p>
+
+                    <h3>5.7 Tactical Grappler Bumper Deployment Code</h3>
+                    <p>The mechanical Grappler Device bumper is a high-risk, high-reward tactical asset that launches a heavy nylon mesh to wrap and lock a suspect vehicle's rear axle.</p>
+                    <ul>
+                        <li><strong>Deployment Authorization Matrix:</strong> This mechanical asset is restricted exclusively to certified High-Speed Pursuit Vehicles and may only be triggered by operators holding specialized tactical certifications.</li>
+                        <li><strong>The Malicious Misuse Act:</strong> Deploying the grappler mesh at velocities exceeding 100 MPH, launching it at completely stationary vehicles, or misusing the device against regular civilian traffic during a minor traffic stop will result in an immediate administrative court-martial, stripping of LEO ranks, and a permanent Tier III moderation log.</li>
+                    </ul>
                 </div>
             </div>
 
         </div>
 
+        <!-- Blacklisted Assets Section (Interactive Flip Cards) -->
+        <h2 class="section-title"><i class="fa-solid fa-triangle-exclamation"></i> Restricted Asset Classifications (Click to Flip)</h2>
+        <section class="flip-cards-container">
+            
+            <!-- CARD 1 -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fa-solid fa-car-burst asset-icon"></i>
+                        <h3>Restricted Vehicles</h3>
+                        <span class="flip-hint">Click to inspect whitelist</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4 style="color:var(--sunset-gold); margin-top:0;">[BLACKLISTED VEHICLES]</h4>
+                        <ul class="blacklist-ul">
+                            <li>Chevlon Corbeta TZ</li>
+                            <li>BKM Risen Roadster</li>
+                            <li>Falcon Heritage</li>
+                            <li>Strugatti Ettore</li>
+                            <li>Surrey 650S</li>
+                            <li>Bullhorn Determinator SFP Blackjack Widebody</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fa-solid fa-person-military-rifle asset-icon"></i>
+                        <h3>Restricted Firepower</h3>
+                        <span class="flip-hint">Click to inspect whitelist</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <h4 style="color:var(--sunset-gold); margin-top:0;">[TACTICAL CLASSIFICATIONS]</h4>
+                        <ul class="blacklist-ul">
+                            <li>High-Caliber, Long-Range Bolt-Action Sniper Rifles</li>
+                            <li>Semi-Automatic & Fully Automatic Shotguns</li>
+                            <li>Premium Gamepass Weaponry Asset Matrix</li>
+                            <li>M249 Squad Automatic Weapon (SAW) / LMG</li>
+                            <li>Vector .45 ACP Submachine Gun (SMG)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Final Signoff Block -->
+        <section class="closing-card">
+            <h3>Section 6: Closing Legislative Declaration</h3>
+            <p>Every regulation, metric, sub-clause, and restriction contained within this document has been rigorously engineered to protect the quality, longevity, and immersion of Bayou State Roleplay. We expect our citizens to hold themselves to the highest standards of behavioral integrity. Your choices define your story—make them count. Thank you for choosing BSRP!</p>
+        </section>
+
     </main>
 
     <footer>
-        <p>&copy; 2024 Bayou State Roleplay. Livingston, LA.</p>
+        <p>&copy; 2026 Bayou State Roleplay. Built for Premium Serious Roleplay Ecosystems.</p>
     </footer>
 
-    <!-- JavaScript to make the dropdowns and animations work -->
+    <!-- Interactive JavaScript Engine -->
     <script>
-        // FUNCTION FOR DROPDOWNs
-        function toggleAccordion(header) {
-            const item = header.parentElement;
-            const content = header.nextElementSibling;
-            
-            // Close all other open items
-            const openItems = document.querySelectorAll('.accordion-item.open');
-            openItems.forEach(i => {
-                if(i !== item) {
-                    i.classList.remove('open');
-                    i.querySelector('.accordion-content').style.maxHeight = null;
-                }
-            });
+        // Carousel Engine
+        let slidePos = 0;
+        const slides = document.getElementsByClassName("carousel-slide");
+        
+        function updateCarousel() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slides[slidePos].classList.add("active");
+        }
 
-            // Toggle the current item
-            item.classList.toggle('open');
+        function shiftSlide(n) {
+            slidePos += n;
+            if (slidePos >= slides.length) { slidePos = 0; }
+            if (slidePos < 0) { slidePos = slides.length - 1; }
+            updateCarousel();
+        }
+
+        // Accordion Controller
+        function handleAccordion(btn) {
+            const item = btn.parentElement;
+            const content = btn.nextElementSibling;
             
-            if (item.classList.contains('open')) {
+            item.classList.toggle("open");
+            
+            if (item.classList.contains("open")) {
                 content.style.maxHeight = content.scrollHeight + "px";
             } else {
                 content.style.maxHeight = null;
+            }
+        }
+
+        // Live Text Filter Logic
+        function filterRules() {
+            let input = document.getElementById('ruleSearch').value.toLowerCase();
+            let nodes = document.getElementsByClassName('search-node');
+
+            for (let i = 0; i < nodes.length; i++) {
+                let txt = nodes[i].innerText.toLowerCase();
+                if (txt.includes(input)) {
+                    nodes[i].style.display = "";
+                    if (input.length > 2) {
+                        nodes[i].classList.add("open");
+                        let content = nodes[i].querySelector('.accordion-content');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                } else {
+                    nodes[i].style.display = "none";
+                    nodes[i].classList.remove("open");
+                }
             }
         }
     </script>
